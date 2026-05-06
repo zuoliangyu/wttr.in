@@ -1,55 +1,86 @@
-package prometheus
+package renderer
 
 import (
+	"encoding/json"
 	"fmt"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/chubin/wttr.in/internal/domain"
 )
 
-// Description maps field names to their Prometheus metric name and help text
+// Description maps internal field names to [Prometheus metric name, help text]
 var Description = map[string][2]string{
-	"FeelsLikeC":       {"feels_like_celsius", "Feels like temperature in Celsius"},
-	"TempC":            {"temperature_celsius", "Current temperature in Celsius"},
-	"humidity":         {"humidity_percent", "Humidity percentage"},
-	"precipMM":         {"precipitation_mm", "Precipitation in millimeters"},
-	"pressure":         {"pressure_hpa", "Atmospheric pressure in hPa"},
-	"visibility":       {"visibility_km", "Visibility in kilometers"},
-	"windspeedKmph":    {"wind_speed_kmph", "Wind speed in kilometers per hour"},
-	"winddir16Point":   {"wind_direction", "Wind direction in 16-point compass"},
-	"weatherDesc":      {"weather_description", "Weather condition description"},
-	"observation_time": {"observation_time_minutes", "Minutes since midnight for observation time"},
-	"sunrise":          {"sunrise_minutes", "Minutes since midnight for sunrise"},
-	"sunset":           {"sunset_minutes", "Minutes since midnight for sunset"},
-	"moonrise":         {"moonrise_minutes", "Minutes since midnight for moonrise"},
-	"moonset":          {"moonset_minutes", "Minutes since midnight for moonset"},
+	// Current / Common
+	"FeelsLikeC":     {"temperature_feels_like_celsius", "Feels like temperature in Celsius"},
+	"FeelsLikeF":     {"temperature_feels_like_fahrenheit", "Feels like temperature in Fahrenheit"},
+	"TempC":          {"temperature_celsius", "Temperature in Celsius"},
+	"TempF":          {"temperature_fahrenheit", "Temperature in Fahrenheit"},
+	"humidity":       {"humidity_percentage", "Humidity percentage"},
+	"precipMM":       {"precipitation_mm", "Precipitation in millimeters"},
+	"pressure":       {"pressure_hpa", "Atmospheric pressure in hPa"},
+	"visibility":     {"visibility", "Visibility in kilometers"},
+	"windspeedKmph":  {"windspeed_kmph", "Wind speed in kilometers per hour"},
+	"windspeedMiles": {"windspeed_mph", "Wind speed in miles per hour"},
+	"winddir16Point": {"winddir_16_point", "Wind direction (16-point compass)"},
+	"winddirDegree":  {"winddir_degree", "Wind direction in degrees"},
+	"weatherDesc":    {"weather_desc", "Weather condition description"},
+	"weatherCode":    {"weather_code", "Weather condition code"},
+	"UVIndex":        {"uv_index", "UV Index"},
+	"cloudcover":     {"cloudcover_percentage", "Cloud cover percentage"},
+
+	// Astronomy
+	"moon_illumination": {"astronomy_moon_illumination", "Moon illumination percentage"},
+	"moon_phase":        {"astronomy_moon_phase", "Moon phase description"},
+	"sunrise":           {"sunrise_minutes", "Minutes since midnight for sunrise"},
+	"sunset":            {"sunset_minutes", "Minutes since midnight for sunset"},
+	"moonrise":          {"moonrise_minutes", "Minutes since midnight for moonrise"},
+	"moonset":           {"moonset_minutes", "Minutes since midnight for moonset"},
+
+	// Daily aggregates (forecast days)
+	"avgtempC":    {"temperature_celsius", "Average temperature in Celsius"},
+	"maxtempC":    {"temperature_celsius_maximum", "Maximum temperature in Celsius"},
+	"mintempC":    {"temperature_celsius_minimum", "Minimum temperature in Celsius"},
+	"avgtempF":    {"temperature_fahrenheit", "Average temperature in Fahrenheit"},
+	"maxtempF":    {"temperature_fahrenheit_maximum", "Maximum temperature in Fahrenheit"},
+	"mintempF":    {"temperature_fahrenheit_minimum", "Minimum temperature in Fahrenheit"},
+	"sunHour":     {"sun_hour", "Sunshine hours"},
+	"totalSnowCM": {"snowfall_cm", "Total snowfall in centimeters"},
 }
 
-// PrometheusRenderer implements the Renderer interface for Prometheus format output
 type PrometheusRenderer struct{}
 
-// NewPrometheusRenderer creates a new instance of PrometheusRenderer
+// NewPrometheusRenderer creates a new Prometheus renderer
 func NewPrometheusRenderer() *PrometheusRenderer {
 	return &PrometheusRenderer{}
 }
 
-// Render converts weather data into Prometheus format
+// Render implements the Renderer interface
 func (r *PrometheusRenderer) Render(query domain.Query) (domain.RenderOutput, error) {
 	var output strings.Builder
 	alreadySeen := make(map[string]bool)
 
-	// Render current conditions
-	if len(query.Weather.CurrentCondition) > 0 {
-		currentData := query.Weather.CurrentCondition[0]
-		rendered := r.renderCurrent(currentData, "current", alreadySeen)
+	if query.Weather == nil {
+		return domain.RenderOutput{Content: []byte{}}, nil
+	}
+
+	// Deserialize WeatherRaw → domain.Weather (standard pattern)
+	var weather domain.Weather
+	err := json.Unmarshal(*query.Weather, &weather)
+	if err != nil {
+		return domain.RenderOutput{}, err
+	}
+
+	// Current condition
+	if len(weather.CurrentCondition) > 0 {
+		rendered := r.renderCurrent(weather.CurrentCondition[0], "current", alreadySeen)
 		output.WriteString(rendered)
 	}
 
-	// Render forecast for next 3 days
-	for i := 0; i < 3 && i < len(query.Weather.Weather); i++ {
-		dayData := query.Weather.Weather[i]
-		rendered := r.renderCurrent(dayData, fmt.Sprintf("%dd", i), alreadySeen)
+	// Forecast — next 3 days
+	for i := 0; i < 3 && i < len(weather.Weather); i++ {
+		rendered := r.renderCurrent(weather.Weather[i], fmt.Sprintf("%dd", i), alreadySeen)
 		output.WriteString(rendered)
 	}
 
@@ -58,82 +89,81 @@ func (r *PrometheusRenderer) Render(query domain.Query) (domain.RenderOutput, er
 	}, nil
 }
 
-// renderCurrent converts data for a specific day or current condition into Prometheus format
+// renderCurrent renders one block (current or forecast day)
 func (r *PrometheusRenderer) renderCurrent(data interface{}, forDay string, alreadySeen map[string]bool) string {
-	var output []string
+	var lines []string
 
-	// Handle different types of input data (CurrentCondition or WeatherDay)
 	switch d := data.(type) {
 	case domain.CurrentCondition:
-		for fieldName, val := range Description {
-			helpText, metricName := val[0], val[1]
-
-			value := r.extractValueFromCurrentCondition(d, fieldName)
+		for fieldName := range Description {
+			metricName, helpText := Description[fieldName][0], Description[fieldName][1]
+			value := r.extractCurrent(d, fieldName)
 			if value == "" {
 				continue
 			}
-
-			if fieldName == "observation_time" {
+			if fieldName == "observation_time" || strings.Contains(fieldName, "time") {
 				value = r.convertTimeToMinutes(value)
 				if value == "" {
 					continue
 				}
 			}
-
-			description := ""
-			if !r.isNumeric(value) {
-				description = fmt.Sprintf(`, description="%s"`, value)
-				value = "1"
-			}
-
-			if !alreadySeen[metricName] {
-				output = append(output, fmt.Sprintf("# HELP %s %s", metricName, helpText))
-				alreadySeen[metricName] = true
-			}
-
-			output = append(output, fmt.Sprintf(`%s{forecast="%s"%s} %s`, metricName, forDay, description, value))
+			r.processValue(&lines, metricName, helpText, forDay, value, alreadySeen)
 		}
-	case domain.WeatherDay:
-		for fieldName, val := range Description {
-			helpText, metricName := val[0], val[1]
 
-			value := r.extractValueFromWeatherDay(d, fieldName)
+	case domain.WeatherDay:
+		for fieldName := range Description {
+			metricName, helpText := Description[fieldName][0], Description[fieldName][1]
+			value := r.extractWeatherDay(d, fieldName)
 			if value == "" {
 				continue
 			}
-
-			if strings.HasSuffix(fieldName, "rise") || strings.HasSuffix(fieldName, "set") {
+			if strings.HasSuffix(fieldName, "rise") || strings.HasSuffix(fieldName, "set") ||
+				strings.Contains(fieldName, "time") {
 				value = r.convertTimeToMinutes(value)
 				if value == "" {
 					continue
 				}
 			}
-
-			description := ""
-			if !r.isNumeric(value) {
-				description = fmt.Sprintf(`, description="%s"`, value)
-				value = "1"
-			}
-
-			if !alreadySeen[metricName] {
-				output = append(output, fmt.Sprintf("# HELP %s %s", metricName, helpText))
-				alreadySeen[metricName] = true
-			}
-
-			output = append(output, fmt.Sprintf(`%s{forecast="%s"%s} %s`, metricName, forDay, description, value))
+			r.processValue(&lines, metricName, helpText, forDay, value, alreadySeen)
 		}
 	}
 
-	return strings.Join(output, "\n") + "\n"
+	if len(lines) == 0 {
+		return ""
+	}
+	return strings.Join(lines, "\n") + "\n"
 }
 
-// extractValueFromCurrentCondition extracts the value for a field from CurrentCondition
-func (r *PrometheusRenderer) extractValueFromCurrentCondition(data domain.CurrentCondition, fieldName string) string {
-	switch fieldName {
+func (r *PrometheusRenderer) processValue(
+	lines *[]string,
+	metricName, helpText, forDay, value string,
+	alreadySeen map[string]bool,
+) {
+	description := ""
+	if !r.isNumeric(value) {
+		description = fmt.Sprintf(`, description="%s"`, value)
+		value = "1"
+	}
+
+	if !alreadySeen[metricName] {
+		*lines = append(*lines, fmt.Sprintf("# HELP %s %s", metricName, helpText))
+		alreadySeen[metricName] = true
+	}
+
+	*lines = append(*lines, fmt.Sprintf(`%s{forecast="%s"%s} %s`, metricName, forDay, description, value))
+}
+
+// extractCurrent extracts from CurrentCondition
+func (r *PrometheusRenderer) extractCurrent(data domain.CurrentCondition, field string) string {
+	switch field {
 	case "FeelsLikeC":
 		return data.FeelsLikeC
+	case "FeelsLikeF":
+		return data.FeelsLikeF
 	case "TempC":
 		return data.TempC
+	case "TempF":
+		return data.TempF
 	case "humidity":
 		return data.Humidity
 	case "precipMM":
@@ -144,37 +174,72 @@ func (r *PrometheusRenderer) extractValueFromCurrentCondition(data domain.Curren
 		return data.Visibility
 	case "windspeedKmph":
 		return data.WindspeedKmph
+	case "windspeedMiles":
+		return data.WindspeedMiles
 	case "winddir16Point":
 		return data.Winddir16Point
+	case "winddirDegree":
+		return data.WinddirDegree
 	case "weatherDesc":
 		if len(data.WeatherDesc) > 0 {
 			return data.WeatherDesc[0].Value
 		}
-	case "observation_time":
-		return data.ObservationTime
+	case "weatherCode":
+		return data.WeatherCode
+	case "UVIndex":
+		return data.UVIndex
+	case "cloudcover":
+		return data.Cloudcover
 	}
 	return ""
 }
 
-// extractValueFromWeatherDay extracts the value for a field from WeatherDay
-func (r *PrometheusRenderer) extractValueFromWeatherDay(data domain.WeatherDay, fieldName string) string {
-	switch fieldName {
+// extractWeatherDay extracts from WeatherDay (daily + Hourly[0])
+func (r *PrometheusRenderer) extractWeatherDay(data domain.WeatherDay, field string) string {
+	switch field {
+	// Astronomy
+	case "moon_illumination":
+		if len(data.Astronomy) > 0 {
+			return data.Astronomy[0].MoonIllumination
+		}
+	case "moon_phase":
+		if len(data.Astronomy) > 0 {
+			return data.Astronomy[0].MoonPhase
+		}
 	case "sunrise", "sunset", "moonrise", "moonset":
 		if len(data.Astronomy) > 0 {
-			astro := data.Astronomy[0]
-			switch fieldName {
+			a := data.Astronomy[0]
+			switch field {
 			case "sunrise":
-				return astro.Sunrise
+				return a.Sunrise
 			case "sunset":
-				return astro.Sunset
+				return a.Sunset
 			case "moonrise":
-				return astro.Moonrise
+				return a.Moonrise
 			case "moonset":
-				return astro.Moonset
+				return a.Moonset
 			}
 		}
-	case "TempC":
+
+	// Daily aggregates
+	case "avgtempC", "TempC":
 		return data.AvgTempC
+	case "maxtempC":
+		return data.MaxTempC
+	case "mintempC":
+		return data.MinTempC
+	case "avgtempF", "TempF":
+		return data.AvgTempF
+	case "maxtempF":
+		return data.MaxTempF
+	case "mintempF":
+		return data.MinTempF
+	case "sunHour":
+		return data.SunHour
+	case "totalSnowCM":
+		return data.TotalSnowCM
+
+	// Hourly[0] fields (most detailed current-like values for forecast days)
 	case "FeelsLikeC":
 		if len(data.Hourly) > 0 {
 			return data.Hourly[0].FeelsLikeC
@@ -207,47 +272,42 @@ func (r *PrometheusRenderer) extractValueFromWeatherDay(data domain.WeatherDay, 
 		if len(data.Hourly) > 0 && len(data.Hourly[0].WeatherDesc) > 0 {
 			return data.Hourly[0].WeatherDesc[0].Value
 		}
+	case "weatherCode":
+		if len(data.Hourly) > 0 {
+			return data.Hourly[0].WeatherCode
+		}
+	case "UVIndex":
+		if len(data.Hourly) > 0 {
+			return data.Hourly[0].UVIndex
+		}
+	case "cloudcover":
+		if len(data.Hourly) > 0 {
+			return data.Hourly[0].Cloudcover
+		}
 	}
 	return ""
 }
 
-// convertTimeToMinutes converts a time string to minutes since midnight
+// convertTimeToMinutes converts "03:04 PM" → minutes since midnight
 func (r *PrometheusRenderer) convertTimeToMinutes(timeStr string) string {
 	if timeStr == "" {
 		return ""
 	}
-
-	// Try different time formats that might appear in the data
-	formats := []string{
-		"03:04 PM",
-		"3:04 PM",
-		"03:04 AM",
-		"3:04 AM",
+	t, err := time.Parse("03:04 PM", timeStr)
+	if err != nil {
+		t, err = time.Parse("3:04 PM", timeStr)
 	}
-
-	var t time.Time
-	var err error
-	for _, format := range formats {
-		t, err = time.Parse(format, timeStr)
-		if err == nil {
-			break
-		}
-	}
-
 	if err != nil {
 		return ""
 	}
-
 	midnight := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
-	duration := t.Sub(midnight)
-	return fmt.Sprintf("%d", int(duration.Minutes()))
+	return strconv.Itoa(int(t.Sub(midnight).Minutes()))
 }
 
-// isNumeric checks if a string can be converted to a float
-func (r *PrometheusRenderer) isNumeric(value string) bool {
-	if value == "" {
+func (r *PrometheusRenderer) isNumeric(s string) bool {
+	if s == "" {
 		return false
 	}
-	_, err := fmt.Sscanf(value, "%f", new(float64))
+	_, err := strconv.ParseFloat(s, 64)
 	return err == nil
 }
