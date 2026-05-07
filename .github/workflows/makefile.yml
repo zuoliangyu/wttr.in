@@ -1,4 +1,4 @@
-name: Makefile CI
+name: CI
 
 on:
   push:
@@ -8,60 +8,58 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-        # Set up Python environment
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'  # Specify the Python version you need (3.11 required for pyjq)
-
-      - name: Create and activate virtual environment
+      # ==================== System Dependencies (for font embedding) ====================
+      - name: Install build dependencies
         run: |
-          python -m venv venv
-          source venv/bin/activate
-          echo "Virtual environment created and activated."
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            fontconfig \
+            fonts-dejavu-core \
+            fonts-noto-core \
+            fonts-noto-cjk \
+            fonts-wqy-zenhei \
+            fonts-symbola \
+            fonts-motoya-l-cedar \
+            fonts-lexi-gulim
 
-      - name: Install Python dependencies
-        run: |
-          sudo apt-get install libjq-dev
-          source venv/bin/activate
-          pip install -r requirements.txt
-
-      - name: Add Python virtual environment to PATH
-        run: |
-          echo "${{ github.workspace }}/venv/bin" >> $GITHUB_PATH
-
-      # Set up Go environment
+      # ==================== Go Setup ====================
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.24'  # Replace with the needed Go version
+          go-version: '1.26'
+          cache: true
 
-      - name: Install gofumpt
+      # ==================== Install Go tools ====================
+      - name: Install Go tools
         run: |
           go install mvdan.cc/gofumpt@latest
 
-      - name: Install goimports
+      # ==================== Install golangci-lint ====================
+      - name: Install golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: latest
+          install-mode: binary
+
+      # ==================== Build & Verify ====================
+      - name: Install Go modules
         run: |
-          go install golang.org/x/tools/cmd/goimports@latest
+          go mod tidy
+          go mod download
 
-      - name: Install swagger
+      - name: Build
+        run: bash build.sh build
+
+      - name: Run checks
         run: |
-          cd /tmp \
-          && go install github.com/go-swagger/go-swagger/cmd/swagger@latest
+          make check
 
-      - name: Add Go bin to PATH
+      - name: Run Go tests
         run: |
-          echo "${{ runner.temp }}/go/bin" >> $GITHUB_PATH
-
-
-      - name: Install dependencies
-        run: make
-
-      - name: Run check
-        run: make check
+          make go-test
