@@ -15,17 +15,6 @@ You can see it running here: [wttr.in](https://wttr.in).
 
 ## Usage
 
-### 👶 Beginner Quick Start (Easy CURL examples)
-
-To quickly test wttr.in without any setup, run these commands in your terminal:
-
-```bash
-curl wttr.in
-curl wttr.in/Bangalore
-curl wttr.in/Mumbai
-```
-
-
 You can access the service from a shell or from a Web browser like this:
 
     $ curl wttr.in
@@ -63,18 +52,17 @@ Use 3-letter airport codes in order to get the weather information at a certain 
     $ curl wttr.in/ham      # Weather for IATA: ham, Hamburg Airport, Germany
 
 Let's say you'd like to get the weather for a geographical location other than a town or city - maybe an attraction
-in a city, a mountain name, or some special location. Add the character `~` before the name to look up that special
-location name before the weather is then retrieved:
+in a city, a mountain name, or some special location:
 
-	$ curl wttr.in/~Vostok+Station
-	$ curl wttr.in/~Eiffel+Tower
-	$ curl wttr.in/~Kilimanjaro
+	$ curl wttr.in/Vostok+Station
+	$ curl wttr.in/Eiffel+Tower
+	$ curl wttr.in/Kilimanjaro
 
 For these examples, you'll see a line below the weather forecast output that shows the geolocation
 results of looking up the location:
 
 	Location: Vostok Station, станция Восток, AAT, Antarctica [-78.4642714,106.8364678]
-    Location: Tour Eiffel, 5, Avenue Anatole France, Gros-Caillou, 7e, Paris, Île-de-France, 75007, France [48.8582602,2.29449905432]
+	Location: Tour Eiffel, Paris, Île-de-France, 75007, France [48.8582602,2.29449905432]
 	Location: Kilimanjaro, Northern, Tanzania [-3.4762789,37.3872648]
 
 You can also use IP-addresses (direct) or domain names (prefixed with `@`) to specify a location:
