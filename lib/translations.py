@@ -28,6 +28,7 @@ FULL_TRANSLATION = [
     "nb",
     "nl",
     "oc",
+    "pa",
     "pl",
     "pt-br",
     "ro",
@@ -69,6 +70,7 @@ PARTIAL_TRANSLATION = [
     "nl",
     "fy",
     "nn",
+    "pa",
     "pt",
     "pt-br",
     "sk",
@@ -122,6 +124,7 @@ PROXY_LANGS = [
     "nb",
     "nn",
     "oc",
+    "pa",
     "ro",
     "ru",
     "sl",
@@ -330,6 +333,11 @@ Vos avèm doncas menat a Oïmiakon,
 un dels endreches mai freds abitat permanéncia del monde.
 Esperam que fa melhor en çò vòstre !
 """,
+        "pa": """
+ਅਸੀਂ ਤੁਹਾਡੀ ਸਥਿਤੀ ਲੱਭਣ ਵਿੱਚ ਅਸਮਰੱਥ ਰਹੇ,
+ਇਸ ਲਈ ਅਸੀਂ ਤੁਹਾਨੂੰ ਓਇਮਯਾਕੋਨ ਲੈ ਆਏ ਹਾਂ,
+ਜੋ ਧਰਤੀ ਦੇ ਸਭ ਤੋਂ ਠੰਡੇ ਸਥਾਈ ਵੱਸੇ ਸਥਾਨਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੈ।
+""",
         "pt": """
 Não conseguimos encontrar a sua localização,
 então decidimos te mostrar o tempo em Oymyakon,
@@ -473,6 +481,7 @@ iray amin'ireo toerana mangatsiaka indrindra tsisy mponina eto an-tany.
         "nl": "Onbekende locatie",
         "oc": "Emplaçament desconegut",
         "fy": "Ûnbekende lokaasje",
+        "pa": "ਅਣਜਾਣ ਟਿਕਾਣਾ",
         "pl": "Nieznana lokalizacja",
         "pt": "Localização desconhecida",
         "pt-br": "Localização desconhecida",
@@ -533,6 +542,7 @@ iray amin'ireo toerana mangatsiaka indrindra tsisy mponina eto an-tany.
         "nl": "Locatie",
         "oc": "Emplaçament",
         "fy": "Lokaasje",
+        "pa": "ਟਿਕਾਣਾ",
         "pl": "Lokalizacja",
         "pt": "Localização",
         "pt-br": "Localização",
@@ -782,6 +792,13 @@ Wy losse dit probleem sa gau mooglik op.
 Foar updates kinne jo ús op https://x.com/igor_chubin folgje.
 ======================================================================================
 """,
+        "pa": """
+ਮਾਫ਼ ਕਰੋ, ਇਸ ਵੇਲੇ ਮੌਸਮ ਸੇਵਾ ਵਿੱਚ ਸਾਡੇ ਸਵਾਲਾਂ ਦੀ ਸੀਮਾ ਖ਼ਤਮ ਹੋ ਗਈ ਹੈ।
+ਇੱਥੇ ਡਿਫ਼ਾਲਟ ਸ਼ਹਿਰ ਦੀ ਮੌਸਮ ਰਿਪੋਰਟ ਹੈ (ਸਿਰਫ਼ ਇਹ ਦਿਖਾਉਣ ਲਈ ਕਿ ਇਹ ਕਿਵੇਂ ਦਿਖਦੀ ਹੈ)।
+ਅਸੀਂ ਜਲਦੀ ਤੋਂ ਜਲਦੀ ਨਵੇਂ ਸਵਾਲ ਪ੍ਰਾਪਤ ਕਰਾਂਗੇ।
+ਤੁਸੀਂ ਅੱਪਡੇਟਾਂ ਲਈ https://x.com/igor_chubin ਦੀ ਪਾਲਣਾ ਕਰ ਸਕਦੇ ਹੋ।
+======================================================================================
+""",
         "pl": """
 Bardzo nam przykro, ale chwilowo wykorzystaliśmy limit zapytań do serwisu pogodowego.
 To, co widzisz jest przykładowym raportem pogodowym dla domyślnego miasta.
@@ -916,6 +933,7 @@ Azonao atao ny manaraka ny pejy https://x.com/igor_chubin.
         "mk": "Нова функција: повеќе јазично локациски имиња \033[92mwttr.in/станция+Восток\033[0m (во UTF-8) и локациско пребарување \033[92mwttr.in/~Kilimanjaro\033[0m (just add ~ before)",
         "mr": "नवीन वैशिष्ट्य: स्थळांची बहुभाषिक नावे \033[92mwttr.in/станция+Восток\033[0m (UTF-8 मध्ये) आणि स्थळ शोध \033[92mwttr.in/~Kilimanjaro\033[0m (फक्त आधी ~ जोडा)",
         "oc": "Novèla foncionalitat : nom de lòc multilenga \033[92mwttr.in/станция+Восток\033[0m (en UTF-8) e recèrca de lòc \033[92mwttr.in/~Kilimanjaro\033[0m (solament ajustatz ~ abans)",
+        "pa": "ਨਵੀਂ ਵਿਸ਼ੇਸ਼ਤਾ: ਬਹੁਭਾਸ਼ੀ ਟਿਕਾਣੇ ਦੇ ਨਾਮ \033[92mwttr.in/станция+Восток\033[0m (UTF-8 ਵਿੱਚ) ਅਤੇ ਟਿਕਾਣਾ ਖੋਜ \033[92mwttr.in/~Kilimanjaro\033[0m (ਬੱਸ ਅੱਗੇ ~ ਜੋੜੋ)",
         "pl": "Nowa funkcjonalność: wielojęzyczne nazwy lokalizacji \033[92mwttr.in/станция+Восток\033[0m (w UTF-8) i szukanie lokalizacji \033[92mwttr.in/~Kilimanjaro\033[0m (poprzedź zapytanie ~ - znakiem tyldy)",
         "pt": "Nova funcionalidade: nomes de localidades em várias línguas \033[92mwttr.in/станция+Восток\033[0m (em UTF-8) e procura por localidades \033[92mwttr.in/~Kilimanjaro\033[0m (é só colocar ~ antes)",
         "pt-br": "Nova funcionalidade: nomes de localidades em várias línguas \033[92mwttr.in/станция+Восток\033[0m (em UTF-8) e procura por localidades \033[92mwttr.in/~Kilimanjaro\033[0m (é só colocar ~ antes)",
@@ -968,6 +986,7 @@ Azonao atao ny manaraka ny pejy https://x.com/igor_chubin.
         "nl": "Volg \033[46m\033[30m@igor_chubin\033[0m voor wttr.in updates",
         "oc": "Seguissètz \033[46m\033[30m@igor_Chubin\033[0m per demorar informat sus wttr.in",
         "fy": "Folgje \033[46m\033[30m@igor_chubin\033[0m foar wttr.in updates",
+        "pa": "wttr.in ਅੱਪਡੇਟਾਂ ਲਈ \033[46m\033[30m@igor_chubin\033[0m ਨੂੰ ਫ਼ਾਲੋ ਕਰੋ",
         "pl": "Śledź \033[46m\033[30m@igor_chubin\033[0m aby być na bieżąco z nowościami dotyczącymi wttr.in",
         "pt": "Seguir \033[46m\033[30m@igor_chubin\033[0m para as novidades de wttr.in",
         "pt-br": "Seguir \033[46m\033[30m@igor_chubin\033[0m para as novidades de wttr.in",
@@ -1035,6 +1054,7 @@ CAPTION = {
     "nl": "Weerbericht voor:",
     "nn": "Vêrmelding for:",
     "oc": "Previsions metèo per :",
+    "pa": "ਮੌਸਮ ਰਿਪੋਰਟ:",
     "pl": "Pogoda w:",
     "pt": "Previsão do tempo para:",
     "pt-br": "Previsão do tempo para:",
