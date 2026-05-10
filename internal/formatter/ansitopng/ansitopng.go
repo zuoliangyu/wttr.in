@@ -305,6 +305,8 @@ func scriptCategory(r rune) string {
 		return "Devanagari"
 	case r >= 0x0980 && r <= 0x09FF: // Bengali
 		return "Bengali"
+	case r >= 0x0A00 && r <= 0x0A7F: // Gurmukhi
+		return "Gurmukhi"
 	}
 	return "default"
 }
