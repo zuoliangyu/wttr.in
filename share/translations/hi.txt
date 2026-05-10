@@ -50,7 +50,7 @@
 281 : जमा देने वाली हवा                                          : Freezing drizzle
 284 : भारी जमने वाली बूंदा बांदी                                     : Heavy freezing drizzle
 293 : हल्की हल्की बारिश                                           : Patchy light rain
-296 : हलकी बारिश                                               : Light rain
+296 : हल्की बारिश                                               : Light rain
 299 : कभी-कभी मध्यम बारिश                                        : Moderate rain at times
 302 : औसत दर्जे की वर्षा                  		                      : Moderate rain
 305 : रुक-रुक कर हो रही भारी बारिश       		                       : Heavy rain at times
