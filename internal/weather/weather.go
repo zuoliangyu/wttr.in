@@ -77,8 +77,19 @@ type UplinkProcessor interface {
 
 // Localizer provides localized strings for a specific language.
 type Localizer interface {
-	Text(lang string, key string) string
-	File(lang string, name string) (string, error)
+	// Text returns a translated string by key.
+	// It should be used for messages, captions, v1/v2 keys, etc.
+	// Do NOT pass condition codes here.
+	Text(lang, key string) string
+
+	// Condition returns translated weather condition by numeric code.
+	Condition(lang string, code int) string
+
+	// ConditionByName returns translated condition by its English name.
+	ConditionByName(lang, englishName string) string
+
+	// File returns raw file content (help.txt, etc.)
+	File(lang, name string) (string, error)
 }
 
 // TimeTracker holds timing information for each step in the pipeline.

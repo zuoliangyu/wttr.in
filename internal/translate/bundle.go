@@ -10,10 +10,17 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// languageData holds preloaded translation data for one language.
+type languageData struct {
+	messages   map[string]string // general messages, captions, v1/v2 keys
+	conditions map[int]string    // code → translated condition
+	byEnglish  map[string]string // english name (lowercase) → translated condition
+}
+
 // Bundle holds all translation data and implements Localizer.
 type Bundle struct {
 	fs    embed.FS
-	langs map[string]*languageData // lang → data (preloaded)
+	langs map[string]*languageData
 }
 
 // NewBundle creates and preloads all languages from the embedded FS.
@@ -22,7 +29,6 @@ func NewBundle(fs embed.FS) *Bundle {
 		fs:    fs,
 		langs: make(map[string]*languageData),
 	}
-
 	b.loadAll()
 	return b
 }
@@ -51,7 +57,8 @@ func (b *Bundle) loadAll() {
 		b.langs[lang] = data
 
 		isFull := false
-		if meta, err := b.fs.ReadFile(fmt.Sprintf("share/translations/%s/metadata.json", lang)); err == nil {
+		metaPath := fmt.Sprintf("share/translations/%s/metadata.json", lang)
+		if meta, err := b.fs.ReadFile(metaPath); err == nil {
 			var m struct {
 				FullTranslation bool `json:"full_translation"`
 			}
@@ -69,7 +76,8 @@ func (b *Bundle) loadAll() {
 		logrus.WithFields(logrus.Fields{
 			"lang":  lang,
 			"full":  isFull,
-			"files": len(data.messages) + len(data.conditions),
+			"keys":  len(data.messages),
+			"conds": len(data.conditions),
 		}).Debugf("Loaded language %s", lang)
 	}
 
@@ -81,45 +89,72 @@ func (b *Bundle) loadAll() {
 	}).Infof("Translations loaded: %d languages (%d full, %d partial)", total, fullCount, partialCount)
 }
 
-// Text implements Localizer.
+// Text returns translated string by key (messages, captions, v1/v2, etc.)
+// Do NOT use it for condition codes.
 func (b *Bundle) Text(lang, key string) string {
 	lang = normalizeLang(lang)
-
 	data, ok := b.langs[lang]
 	if !ok {
-		// fallback to English
 		if lang != "en" {
 			return b.Text("en", key)
 		}
 		return key
 	}
 
-	// Direct message / view key
 	if s, ok := data.messages[key]; ok && s != "" {
 		return s
 	}
 
-	// Condition by code
-	if code, err := strconv.Atoi(strings.TrimSpace(key)); err == nil {
-		if s, ok := data.conditions[code]; ok && s != "" {
-			return s
-		}
-	}
-
-	// Condition by English name
-	lower := strings.ToLower(strings.TrimSpace(key))
-	if s, ok := data.byEnglish[lower]; ok && s != "" {
-		return s
-	}
-
-	// Final fallback to English
 	if lang != "en" {
 		return b.Text("en", key)
 	}
 	return key
 }
 
-// File implements Localizer.
+// Condition returns translated weather condition by numeric code.
+func (b *Bundle) Condition(lang string, code int) string {
+	lang = normalizeLang(lang)
+	data, ok := b.langs[lang]
+	if !ok {
+		if lang != "en" {
+			return b.Condition("en", code)
+		}
+		return fmt.Sprintf("Unknown (%d)", code)
+	}
+
+	if s, ok := data.conditions[code]; ok && s != "" {
+		return s
+	}
+
+	if lang != "en" {
+		return b.Condition("en", code)
+	}
+	return fmt.Sprintf("Unknown (%d)", code)
+}
+
+// ConditionByName returns translated condition by its English name.
+func (b *Bundle) ConditionByName(lang, englishName string) string {
+	lang = normalizeLang(lang)
+	data, ok := b.langs[lang]
+	if !ok {
+		if lang != "en" {
+			return b.ConditionByName("en", englishName)
+		}
+		return englishName
+	}
+
+	lower := strings.ToLower(strings.TrimSpace(englishName))
+	if s, ok := data.byEnglish[lower]; ok && s != "" {
+		return s
+	}
+
+	if lang != "en" {
+		return b.ConditionByName("en", englishName)
+	}
+	return englishName
+}
+
+// File returns raw file content (help.txt, conditions.txt, etc.)
 func (b *Bundle) File(lang, name string) (string, error) {
 	lang = normalizeLang(lang)
 	p := fmt.Sprintf("share/translations/%s/%s", lang, name)
@@ -144,10 +179,9 @@ func (b *Bundle) loadLanguage(lang string) *languageData {
 
 	base := fmt.Sprintf("share/translations/%s/", lang)
 
-	// Load messages, v1, v2
+	// Load messages + views
 	for _, filename := range []string{"messages.json", "v1.json", "v2.json"} {
-		data, err := b.fs.ReadFile(base + filename)
-		if err == nil {
+		if data, err := b.fs.ReadFile(base + filename); err == nil {
 			var m map[string]string
 			if json.Unmarshal(data, &m) == nil {
 				for k, v := range m {
@@ -163,6 +197,40 @@ func (b *Bundle) loadLanguage(lang string) *languageData {
 	}
 
 	return ld
+}
+
+// parseConditions parses the classic wttr.in conditions.txt format
+func parseConditions(data []byte, byCode map[int]string, byEnglish map[string]string) {
+	lines := strings.Split(string(data), "\n")
+	for _, line := range lines {
+		line = strings.TrimSpace(line)
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
+		}
+
+		parts := strings.Split(line, ":")
+		if len(parts) < 3 {
+			continue
+		}
+
+		codeStr := strings.TrimSpace(parts[0])
+		translated := strings.TrimSpace(parts[1])
+		english := strings.TrimSpace(parts[2])
+
+		if translated == "" {
+			continue
+		}
+
+		// By numeric code
+		if code, err := strconv.Atoi(codeStr); err == nil && code != 0 {
+			byCode[code] = translated
+		}
+
+		// By English name (for uncoded conditions)
+		if english != "" {
+			byEnglish[strings.ToLower(english)] = translated
+		}
+	}
 }
 
 func normalizeLang(lang string) string {

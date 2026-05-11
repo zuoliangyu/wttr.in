@@ -1,7 +1,6 @@
 package main
 
 import (
-	"embed"
 	"flag"
 	"fmt"
 	"log"
@@ -10,6 +9,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
+	"github.com/chubin/wttr.in/internal/assets"
 	"github.com/chubin/wttr.in/internal/cache"
 	"github.com/chubin/wttr.in/internal/config"
 	"github.com/chubin/wttr.in/internal/defs"
@@ -118,7 +118,7 @@ func srv(configFile string) error {
 		time.Duration(cfg.Logging.Interval)*time.Second,
 	)
 
-	localizer := translate.NewBundle(embed.FS)
+	localizer := translate.NewBundle(assets.FS)
 
 	ws := weather.NewWeatherService(
 		weather.NewWeatherClient(cfg.Weather.WWO),
