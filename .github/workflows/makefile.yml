@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ==================== System Dependencies (for font embedding) ====================
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            fontconfig \
+            fonts-dejavu-core \
+            fonts-noto-core \
+            fonts-noto-cjk \
+            fonts-wqy-zenhei \
+            fonts-symbola \
+            fonts-motoya-l-cedar \
+            fonts-lexi-gulim
+
+      # ==================== Go Setup ====================
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+          cache: true
+
+      # ==================== Install Go tools ====================
+      - name: Install Go tools
+        run: |
+          go install mvdan.cc/gofumpt@latest
+
+      # ==================== Install golangci-lint ====================
+      - name: Install golangci-lint from source
+        run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
+      # ==================== Build & Verify ====================
+      - name: Install Go modules
+        run: |
+          go mod tidy
+          go mod download
+
+      - name: Build
+        run: bash build.sh build
+
+      - name: Run checks
+        run: |
+          make check
+
+      - name: Run Go tests
+        run: |
+          make go-test

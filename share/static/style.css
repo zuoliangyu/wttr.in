@@ -2,6 +2,17 @@ body {
     background: black;
     color: #bbbbbb;
 }
+
+/* Switch to light mode if the user prefers it */
+/*
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+*/
+
 pre {
 /*    font-family: source_code_proregular; */
 

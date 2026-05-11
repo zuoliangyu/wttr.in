@@ -1,0 +1,47 @@
+113: ਸਾਫ਼ ਆਸਮਾਨ                         : Clear
+113: ਧੁੱਪਦਾਰ                             : Sunny
+116: ਅੰਸ਼ਿਕ ਬੱਦਲਾਛਾਇਆ                    : Partly cloudy
+119: ਬੱਦਲਾਛਾਇਆ                          : Cloudy
+122: ਪੂਰੀ ਤਰ੍ਹਾਂ ਬੱਦਲਾਛਾਇਆ               : Overcast
+143: ਧੁੰਦਲਾ                               : Mist
+176: ਛਿਟਪੁੱਟ ਮੀਂਹ ਸੰਭਵ                   : Patchy rain possible
+179: ਛਿਟਪੁੱਟ ਬਰਫ਼ਬਾਰੀ ਸੰਭਵ                : Patchy snow possible
+182: ਛਿਟਪੁੱਟ ਸਲੀਟ ਸੰਭਵ                   : Patchy sleet possible
+185: ਛਿਟਪੁੱਟ ਜਮਦੀ ਫੁਹਾਰ ਸੰਭਵ             : Patchy freezing drizzle possible
+200: ਗਰਜ-ਚਮਕ ਦੀ ਸੰਭਾਵਨਾ                   : Thundery outbreaks possible
+227: ਉਡਦੀ ਬਰਫ਼                            : Blowing snow
+230: ਬਰਫ਼ੀਲਾ ਤੂਫ਼ਾਨ                        : Blizzard
+248: ਘਣਾ ਕੋਹਰਾ                            : Fog
+260: ਜੰਮਦਾ ਕੋਹਰਾ                          : Freezing fog
+263: ਛਿਟਪੁੱਟ ਹਲਕੀ ਫੁਹਾਰ                   : Patchy light drizzle
+266: ਹਲਕੀ ਫੁਹਾਰ                           : Light drizzle
+281: ਜੰਮਦੀ ਫੁਹਾਰ                           : Freezing drizzle
+284: ਭਾਰੀ ਜਮਦੀ ਫੁਹਾਰ                       : Heavy freezing drizzle
+293: ਛਿਟਪੁੱਟ ਹਲਕਾ ਮੀਂਹ                     : Patchy light rain
+296: ਹਲਕਾ ਮੀਂਹ                             : Light rain
+299: ਕਦੇ-ਕਦੇ ਦਰਮਿਆਨਾ ਮੀਂਹ                  : Moderate rain at times
+302: ਦਰਮਿਆਨਾ ਮੀਂਹ                          : Moderate rain
+305: ਕਦੇ-ਕਦੇ ਭਾਰੀ ਮੀਂਹ                      : Heavy rain at times
+308: ਭਾਰੀ ਮੀਂਹ                              : Heavy rain
+311: ਹਲਕਾ ਜਮਦਾ ਮੀਂਹ                         : Light freezing rain
+314: ਦਰਮਿਆਨਾ ਜਾਂ ਭਾਰੀ ਜਮਦਾ ਮੀਂਹ             : Moderate or heavy freezing rain
+317: ਹਲਕੀ ਸਲੀਟ                             : Light sleet
+320: ਦਰਮਿਆਨੀ ਜਾਂ ਭਾਰੀ ਸਲੀਟ                 : Moderate or heavy sleet
+323: ਛਿਟਪੁੱਟ ਹਲਕੀ ਬਰਫ਼                      : Patchy light snow
+326: ਹਲਕੀ ਬਰਫ਼                              : Light snow
+329: ਛਿਟਪੁੱਟ ਦਰਮਿਆਨੀ ਬਰਫ਼                  : Patchy moderate snow
+332: ਦਰਮਿਆਨੀ ਬਰਫ਼                           : Moderate snow
+335: ਛਿਟਪੁੱਟ ਭਾਰੀ ਬਰਫ਼                      : Patchy heavy snow
+338: ਭਾਰੀ ਬਰਫ਼                               : Heavy snow
+350: ਬਰਫ਼ੀਲੇ ਦਾਣੇ                            : Ice pellets
+353: ਹਲਕੀ ਮੀਂਹ ਦੀ ਬੌਛਾਰ                     : Light rain shower
+356: ਦਰਮਿਆਨੀ ਜਾਂ ਭਾਰੀ ਮੀਂਹ ਦੀ ਬੌਛਾਰ         : Moderate or heavy rain shower
+359: ਮੋਸਲਾਧਾਰ ਮੀਂਹ ਦੀ ਬੌਛਾਰ                : Torrential rain shower
+362: ਹਲਕੀ ਸਲੀਟ ਦੀਆਂ ਬੌਛਾਰਾਂ                 : Light sleet showers
+365: ਦਰਮਿਆਨੀ ਜਾਂ ਭਾਰੀ ਸਲੀਟ ਦੀਆਂ ਬੌਛਾਰਾਂ     : Moderate or heavy sleet showers
+368: ਹਲਕੀ ਬਰਫ਼ ਦੀਆਂ ਬੌਛਾਰਾਂ                 : Light snow showers
+371: ਦਰਮਿਆਨੀ ਜਾਂ ਭਾਰੀ ਬਰਫ਼ ਦੀਆਂ ਬੌਛਾਰਾਂ     : Moderate or heavy snow showers
+386: ਗਰਜ ਨਾਲ ਛਿਟਪੁੱਟ ਹਲਕਾ ਮੀਂਹ              : Patchy light rain with thunder
+389: ਗਰਜ ਨਾਲ ਦਰਮਿਆਨਾ ਜਾਂ ਭਾਰੀ ਮੀਂਹ           : Moderate or heavy rain with thunder
+392: ਗਰਜ ਨਾਲ ਛਿਟਪੁੱਟ ਹਲਕੀ ਬਰਫ਼               : Patchy light snow with thunder
+395: ਗਰਜ ਨਾਲ ਦਰਮਿਆਨੀ ਜਾਂ ਭਾਰੀ ਬਰਫ਼           : Moderate or heavy snow with thunder
