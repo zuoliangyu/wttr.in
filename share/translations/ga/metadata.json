@@ -1,0 +1,16 @@
+{
+  "code": "ga",
+  "name": "Irish",
+  "locale": "ga_IE",
+  "translators": [
+    {
+      "name": "Robert Devereux",
+      "github": "RobertDev"
+    },
+    {
+      "name": "Conor O'Callaghan",
+      "github": "ivernus"
+    }
+  ],
+  "full_translation": false
+}

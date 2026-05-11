@@ -1,0 +1,22 @@
+{
+  "code": "tr",
+  "name": "Turkish",
+  "locale": "tr_TR",
+  "translators": [
+    {
+      "name": "Atabey Kaygun"
+    },
+    {
+      "name": "Yilmaz",
+      "github": "edigu"
+    },
+    {
+      "name": "Volkan Tokmak",
+      "github": "volkanto"
+    },
+    {
+      "name": "Oğuz Ersen"
+    }
+  ],
+  "full_translation": false
+}

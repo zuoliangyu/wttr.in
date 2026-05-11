@@ -1,0 +1,12 @@
+{
+  "code": "hr",
+  "name": "Croatian",
+  "locale": "hr_HR",
+  "translators": [
+    {
+      "name": "Siniša Kusić",
+      "github": "ku5ic"
+    }
+  ],
+  "full_translation": false
+}

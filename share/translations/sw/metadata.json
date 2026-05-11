@@ -1,0 +1,11 @@
+{
+  "code": "sw",
+  "name": "Swahili",
+  "locale": "sw_KE",
+  "translators": [
+    {
+      "name": "Joel Mukuthu"
+    }
+  ],
+  "full_translation": false
+}

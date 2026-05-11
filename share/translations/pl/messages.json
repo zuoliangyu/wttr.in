@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNie udało nam się znaleźć podanej przez Ciebie lokalizacji,\nwięc zabraliśmy Cię do Ojmiakonu,\njednego z najzimniejszych, stale zamieszkanych miejsc na Ziemi.\nMamy nadzieję, że u Ciebie jest cieplej!\n",
+  "UNKNOWN_LOCATION": "Nieznana lokalizacja",
+  "LOCATION": "Lokalizacja",
+  "CAPACITY_LIMIT_REACHED": "\nBardzo nam przykro, ale chwilowo wykorzystaliśmy limit zapytań do serwisu pogodowego.\nTo, co widzisz jest przykładowym raportem pogodowym dla domyślnego miasta.\nPostaramy się przywrócić funkcjonalność tak szybko, jak to tylko możliwe.\nMożesz śledzić https://x.com/igor_chubin na Twitterze, aby być na bieżąco.\n======================================================================================\n",
+  "NEW_FEATURE": "Nowa funkcjonalność: wielojęzyczne nazwy lokalizacji \u001b[92mwttr.in/станция+Восток\u001b[0m (w UTF-8) i szukanie lokalizacji \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (poprzedź zapytanie ~ - znakiem tyldy)",
+  "FOLLOW_ME": "Śledź \u001b[46m\u001b[30m@igor_chubin\u001b[0m aby być na bieżąco z nowościami dotyczącymi wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Pogoda w:"
+}

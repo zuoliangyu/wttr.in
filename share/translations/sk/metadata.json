@@ -1,0 +1,11 @@
+{
+  "code": "sk",
+  "name": "Slovak",
+  "locale": "sk_SK",
+  "translators": [
+    {
+      "name": "Juraj Kakody"
+    }
+  ],
+  "full_translation": false
+}

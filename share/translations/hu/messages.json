@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNem sikerült megtalálni a pozíciódat,\nígy elhoztunk Ojmjakonba;\naz egyik leghidegebb állandóan lakott településre a bolygón.\n",
+  "UNKNOWN_LOCATION": "Ismeretlen lokáció",
+  "LOCATION": "Lokáció",
+  "CAPACITY_LIMIT_REACHED": "\nSajnáljuk, kifogytunk az időjárási szolgáltatásra fordított erőforrásokból.\nItt van az alapértelmezett város időjárási jelentése (hogy lásd, hogyan néz ki).\nA lehető leghamarabb új erőforrásokat fogunk kapni.\nA frissítésekért tekintsd meg a https://x.com/igor_chubin oldalt.\n======================================================================================\n",
+  "NEW_FEATURE": "Új funkcinalitás: többnyelvű helynevek \u001b[92mwttr.in/станция+Восток\u001b[0m (UTF-8-ban) és pozíció keresés \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (csak adj egy ~ jelet elé)",
+  "FOLLOW_ME": "Kövesd \u001b[46m\u001b[30m@igor_chubin\u001b[0m-t további wttr.in információkért",
+  "CAPTION_WEATHER_REPORT_FOR": "Időjárás előrejelzés:"
+}

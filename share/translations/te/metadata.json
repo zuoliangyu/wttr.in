@@ -1,0 +1,16 @@
+{
+  "code": "te",
+  "name": "Telugu",
+  "locale": "te_TE",
+  "translators": [
+    {
+      "name": "Pavan Srinivas Mamidala",
+      "github": "pavansrinivasmamidala"
+    },
+    {
+      "name": "Vishal Boddu",
+      "github": "bodduv"
+    }
+  ],
+  "full_translation": false
+}

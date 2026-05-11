@@ -1,0 +1,12 @@
+{
+  "code": "gl",
+  "name": "Galician",
+  "locale": "gl_ES",
+  "translators": [
+    {
+      "name": "Diego Blanco",
+      "github": "diego-treitos"
+    }
+  ],
+  "full_translation": false
+}

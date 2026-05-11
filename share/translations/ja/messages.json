@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\n指定された場所が見つかりませんでした。\n代わりにオイミャコンの天気予報を表示しています。\nオイミャコンは地球上で最も寒い居住地の一つです。\n",
+  "UNKNOWN_LOCATION": "未知の場所です",
+  "LOCATION": "位置情報",
+  "CAPACITY_LIMIT_REACHED": "\nSorry, we are running out of queries to the weather service at the moment.\nHere is the weather report for the default city (just to show you what it looks like).\nWe will get new queries as soon as possible.\nYou can follow https://x.com/igor_chubin for the updates.\n======================================================================================\n",
+  "NEW_FEATURE": "New feature: multilingual location names \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) and location search \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (just add ~ before)",
+  "FOLLOW_ME": "Follow \u001b[46m\u001b[30m@igor_chubin\u001b[0m for wttr.in updates",
+  "CAPTION_WEATHER_REPORT_FOR": "天気予報："
+}

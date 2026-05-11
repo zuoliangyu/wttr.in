@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nMēs nevarējām noteikt Tavu atrašanās vietu, tādēļ nogādājām Tevi Oimjakonā,\nvienā no planētas aukstākajām pastāvīgi apdzīvotajām vietām.\n",
+  "UNKNOWN_LOCATION": "Nezināma atrašanās vieta",
+  "LOCATION": "Atrašanās vieta",
+  "CAPACITY_LIMIT_REACHED": "\nAtvainojamies, šobrīd laikapstākļu pakalpojums ir noslogots!\nŠeit ir laika ziņas noklusējuma pilsētai (lai parādītu, kā tās izskatās).\nMēs atsāksim darbu, cik ātri vien varēsim.\nVar sekot https://x.com/igor_chubin, lai uzzinātu jaunumus.\n======================================================================================\n",
+  "NEW_FEATURE": "Jauna iespēja: daudzvalodu atrašanās vietu nosaukumi \u001b[92mwttr.in/станция+Восток\u001b[0m (UTF-8) un atrašanās vietu meklēšana \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (sākumā tikai jāpievieno ~)",
+  "FOLLOW_ME": "Seko \u001b[46m\u001b[30m@igor_chubin\u001b[0m, lai uzzinātu jaunumus par wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Laika ziņas:"
+}

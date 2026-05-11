@@ -1,0 +1,16 @@
+{
+  "code": "pt-br",
+  "name": "Brazilian Portuguese",
+  "locale": "pt_BR",
+  "translators": [
+    {
+      "name": "Tupã Negreiros",
+      "github": "TupaNegreiros"
+    },
+    {
+      "name": "Gabriel Monteiro",
+      "github": "krosct"
+    }
+  ],
+  "full_translation": true
+}

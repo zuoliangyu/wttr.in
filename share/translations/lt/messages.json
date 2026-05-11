@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nMums nepavyko rasti jūsų vietovės,\ntodėl mes nukreipėme jus į Omjakoną,\nvieną iš šalčiausių nuolatinių gyvenviečių planetoje.\n",
+  "UNKNOWN_LOCATION": "Nežinoma vietovė",
+  "LOCATION": "Vietovė",
+  "CAPACITY_LIMIT_REACHED": "\nAtsiprašome, šiuo metu pasiekėme orų prognozės paslaugos užklausų ribą.\nŠtai orų prognozė numatomam miestui (tam, kad parodytume, kaip ji atrodo).\nNaujas užklausas priimsime, kai tik galėsime.\nAtnaujinimus galite sekti https://x.com/igor_chubin\n======================================================================================\n",
+  "NEW_FEATURE": "Naujiena: daugiakalbiai vietovių pavadinimai \u001b[92mwttr.in/станция+Восток\u001b[0m (UTF-8) ir vietovių paieška \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (tiesiog priekyje pridėkite ~)",
+  "FOLLOW_ME": "wttr.in atnaujinimus sekite \u001b[46m\u001b[30m@igor_chubin\u001b[0m",
+  "CAPTION_WEATHER_REPORT_FOR": "Orų prognozė:"
+}

@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nНисмо успели да пронађемо Вашу локацију,\nпа смо Вас довели у Ојмјакон,\nједно од најхладнијих стално насељених места на планети.\nНадамо се да је време код Вас боље него што је то случај овде!\n",
+  "UNKNOWN_LOCATION": "Непозната локација",
+  "LOCATION": "Локација",
+  "CAPACITY_LIMIT_REACHED": "\nSorry, we are running out of queries to the weather service at the moment.\nHere is the weather report for the default city (just to show you what it looks like).\nWe will get new queries as soon as possible.\nYou can follow https://x.com/igor_chubin for the updates.\n======================================================================================\n",
+  "NEW_FEATURE": "New feature: multilingual location names \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) and location search \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (just add ~ before)",
+  "FOLLOW_ME": "Follow \u001b[46m\u001b[30m@igor_chubin\u001b[0m for wttr.in updates",
+  "CAPTION_WEATHER_REPORT_FOR": "Временска прогноза за:"
+}

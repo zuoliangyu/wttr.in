@@ -1,0 +1,15 @@
+{
+  "code": "uk",
+  "name": "Ukrainian",
+  "locale": "uk_UA",
+  "translators": [
+    {
+      "name": "Igor Chubin"
+    },
+    {
+      "name": "Serhiy",
+      "github": "pavse"
+    }
+  ],
+  "full_translation": false
+}

@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nWir konnten Ihren Standort nicht finden,\nalso haben wir Sie nach Oimjakon gebracht,\neiner der kältesten dauerhaft bewohnten Orte auf dem Planeten.\nWir hoffen, dass Sie besseres Wetter haben!\n",
+  "UNKNOWN_LOCATION": "Unbekannter Ort",
+  "LOCATION": "Ort",
+  "CAPACITY_LIMIT_REACHED": "\nEntschuldigung, wir können momentan den Wetterdienst nicht erreichen.\nDafür zeigen wir Ihnen das Wetter an einem Beispielort, damit Sie sehen, wie die Seite das Wetter anzeigt.\nWir werden versuchen das Problem so schnell wie möglich zu beheben.\nFolgen Sie https://x.com/igor_chubin für Updates.\n======================================================================================\n",
+  "NEW_FEATURE": "Neue Funktion: mehrsprachige Ortsnamen \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) und Ortssuche \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (fügen Sie ein ~ vor dem Ort ein)",
+  "FOLLOW_ME": "Folgen Sie \u001b[46m\u001b[30mhttps://x.com/igor_chubin\u001b[0m für wttr.in Updates",
+  "CAPTION_WEATHER_REPORT_FOR": "Wetterbericht für:"
+}

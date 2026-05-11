@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nKami tidak dapat menemukan lokasi anda,\njadi kami membawa anda ke Oymyakon,\nsalah satu tempat terdingin yang selalu dihuni di planet ini!\n",
+  "UNKNOWN_LOCATION": "Lokasi tidak diketahui",
+  "LOCATION": "Lokasi",
+  "CAPACITY_LIMIT_REACHED": "\nMaaf, kami kehabian permintaan ke layanan cuaca saat ini.\nIni adalah laporan cuaca dari kota standar (hanya untuk menunjukkan kepada anda bagaimana tampilannya).\nKami akan mencoba permintaan baru lagi sesegera mungkin.\nAnda dapat mengikuti https://x.com/igor_chubin untuk informasi terbaru.\n======================================================================================\n",
+  "NEW_FEATURE": "Fitur baru: nama lokasi dalam multibahasa \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) dan pencarian lokasi \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (hanya tambah tanda ~ sebelumnya)",
+  "FOLLOW_ME": "Ikuti \u001b[46m\u001b[30m@igor_chubin\u001b[0m untuk informasi wttr.in terbaru",
+  "CAPTION_WEATHER_REPORT_FOR": "Prakiraan cuaca:"
+}

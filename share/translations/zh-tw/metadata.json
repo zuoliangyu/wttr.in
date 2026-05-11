@@ -1,0 +1,11 @@
+{
+  "code": "zh-tw",
+  "name": "Chinese (Traditional)",
+  "locale": "zh_TW",
+  "translators": [
+    {
+      "name": "Jeff Huang"
+    }
+  ],
+  "full_translation": false
+}

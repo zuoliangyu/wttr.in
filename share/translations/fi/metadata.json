@@ -1,0 +1,11 @@
+{
+  "code": "fi",
+  "name": "Finnish",
+  "locale": "fi_FI",
+  "translators": [
+    {
+      "name": "Maxifi"
+    }
+  ],
+  "full_translation": false
+}

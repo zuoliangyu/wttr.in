@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nВаше местоположение определить не удалось,\nпоэтому мы покажем вам погоду в Оймяконе,\nсамом холодном населённом пункте на планете.\nБудем надеяться, что у вас сегодня погода лучше!\n",
+  "UNKNOWN_LOCATION": "Неизвестное местоположение",
+  "LOCATION": "Местоположение",
+  "CAPACITY_LIMIT_REACHED": "\nSorry, we are running out of queries to the weather service at the moment.\nHere is the weather report for the default city (just to show you what it looks like).\nWe will get new queries as soon as possible.\nYou can follow https://x.com/igor_chubin for the updates.\n======================================================================================\n",
+  "NEW_FEATURE": "Попробуйте: названия мест на любом языке \u001b[92mwttr.in/станция+Восток\u001b[0m (в UTF-8) и поиск мест \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (нужно добавить ~ спереди)",
+  "FOLLOW_ME": "Все новые фичи публикуются здесь: \u001b[46m\u001b[30m@igor_chubin\u001b[0m",
+  "CAPTION_WEATHER_REPORT_FOR": "Прогноз погоды:"
+}

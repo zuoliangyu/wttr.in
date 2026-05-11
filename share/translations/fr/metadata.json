@@ -1,0 +1,21 @@
+{
+  "code": "fr",
+  "name": "French",
+  "locale": "fr_FR",
+  "translators": [
+    {
+      "name": "Igor Chubin"
+    },
+    {
+      "name": "daftaupe"
+    },
+    {
+      "name": "iago-lito"
+    },
+    {
+      "name": "Marc66",
+      "github": "Marc66"
+    }
+  ],
+  "full_translation": true
+}

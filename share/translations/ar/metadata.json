@@ -1,0 +1,17 @@
+{
+  "code": "ar",
+  "name": "Arabic",
+  "locale": "ar_TN",
+  "translators": [
+    {
+      "name": "Besher Aladdam",
+      "github": "akai54"
+    },
+    {
+      "name": "Ahmed D. ALi",
+      "twitter": "_nakanakaii",
+      "github": "nakanakaii"
+    }
+  ],
+  "full_translation": false
+}

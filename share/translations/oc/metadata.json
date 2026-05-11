@@ -1,0 +1,12 @@
+{
+  "code": "oc",
+  "name": "Occitan",
+  "locale": "oc_FR",
+  "translators": [
+    {
+      "name": "Quentin PAGÈS",
+      "github": "Quenty-tolosan"
+    }
+  ],
+  "full_translation": false
+}

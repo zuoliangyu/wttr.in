@@ -1,0 +1,11 @@
+{
+  "code": "cy",
+  "name": "Welsh",
+  "locale": "cy_GB",
+  "translators": [
+    {
+      "name": "Daniel Thomas"
+    }
+  ],
+  "full_translation": false
+}

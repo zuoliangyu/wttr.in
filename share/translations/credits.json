@@ -1,0 +1,658 @@
+{
+  "TRANSLATORS": {
+    "af": {
+      "language": "Afrikaans",
+      "translators": [
+        {
+          "name": "Casper Labuschage",
+          "github": "casperl"
+        }
+      ]
+    },
+    "ar": {
+      "language": "Arabic",
+      "translators": [
+        {
+          "name": "Besher Aladdam",
+          "github": "akai54"
+        },
+        {
+          "name": "Ahmed D. ALi",
+          "twitter": "_nakanakaii",
+          "github": "nakanakaii"
+        }
+      ]
+    },
+    "hy": {
+      "language": "Armenian",
+      "translators": [
+        {
+          "name": "Aram Bayadyan",
+          "github": "aramix"
+        },
+        {
+          "name": "Mikayel Ghazaryan",
+          "github": "mkdotam"
+        },
+        {
+          "name": "Grigor Khachatryan",
+          "github": "grigortw"
+        }
+      ]
+    },
+    "az": {
+      "language": "Azerbaijani",
+      "translators": [
+        {
+          "name": "Dmytro Nikitiuk"
+        },
+        {
+          "name": "Elsevar Abbasov"
+        },
+        {
+          "name": "Eldar Velibekov",
+          "github": "welibekov"
+        }
+      ]
+    },
+    "eu": {
+      "language": "Basque",
+      "translators": [
+        {
+          "name": "Iker Sagasti",
+          "github": "isagasti"
+        }
+      ]
+    },
+    "be": {
+      "language": "Belarusian",
+      "translators": [
+        {
+          "name": "Igor Chubin"
+        },
+        {
+          "name": "Anton Zhavoronkov",
+          "github": "edogby"
+        }
+      ]
+    },
+    "bn": {
+      "language": "Bengali",
+      "translators": [
+        {
+          "name": "Nazia Tasnim",
+          "github": "appledora"
+        }
+      ]
+    },
+    "bs": {
+      "language": "Bosnian",
+      "translators": [
+        {
+          "name": "Ismar Kunc",
+          "github": "ismarkunc"
+        }
+      ]
+    },
+    "bg": {
+      "language": "Bulgarian",
+      "translators": [
+        {
+          "name": "Vladimir Vitkov",
+          "github": "zeridon"
+        }
+      ]
+    },
+    "pt-br": {
+      "language": "Brazilian Portuguese",
+      "translators": [
+        {
+          "name": "Tupã Negreiros",
+          "github": "TupaNegreiros"
+        },
+        {
+          "name": "Gabriel Monteiro",
+          "github": "krosct"
+        }
+      ]
+    },
+    "ca": {
+      "language": "Catalan",
+      "translators": [
+        {
+          "name": "Angel Jarabo",
+          "github": "legna29A"
+        }
+      ]
+    },
+    "zh-tw": {
+      "language": "Chinese (Traditional)",
+      "translators": [
+        {
+          "name": "Jeff Huang"
+        }
+      ]
+    },
+    "zh-cn": {
+      "language": "Chinese (Simplified)",
+      "translators": [
+        {
+          "name": "YouthLin Chen",
+          "github": "YouthLin"
+        },
+        {
+          "name": "Junhan",
+          "github": "junhan-z"
+        },
+        {
+          "name": "Felix Wong",
+          "github": "gnowxilef"
+        }
+      ]
+    },
+    "hr": {
+      "language": "Croatian",
+      "translators": [
+        {
+          "name": "Siniša Kusić",
+          "github": "ku5ic"
+        }
+      ]
+    },
+    "cs": {
+      "language": "Czech",
+      "translators": [
+        {
+          "name": "Juraj Kakody"
+        },
+        {
+          "name": "Ondřej Povolný",
+          "github": "Remogeus"
+        }
+      ]
+    },
+    "da": {
+      "language": "Danish",
+      "translators": [
+        {
+          "name": "Kim Schulz",
+          "github": "kimusan"
+        }
+      ]
+    },
+    "nl": {
+      "language": "Dutch",
+      "translators": [
+        {
+          "name": "Youri Claes"
+        },
+        {
+          "name": "Edwin Martin",
+          "github": "edwinm"
+        }
+      ]
+    },
+    "eo": {
+      "language": "Esperanto",
+      "translators": [
+        {
+          "name": "Igor Chubin"
+        }
+      ]
+    },
+    "et": {
+      "language": "Estonian",
+      "translators": [
+        {
+          "name": "Jaan Jänesmäe",
+          "github": "janesmae"
+        }
+      ]
+    },
+    "fi": {
+      "language": "Finnish",
+      "translators": [
+        {
+          "name": "Maxifi"
+        }
+      ]
+    },
+    "fr": {
+      "language": "French",
+      "translators": [
+        {
+          "name": "Igor Chubin"
+        },
+        {
+          "name": "daftaupe"
+        },
+        {
+          "name": "iago-lito"
+        },
+        {
+          "name": "Marc66",
+          "github": "Marc66"
+        }
+      ]
+    },
+    "fy": {
+      "language": "Frisian",
+      "translators": [
+        {
+          "name": "Anne Douwe Bouma",
+          "github": "anned20"
+        }
+      ]
+    },
+    "gl": {
+      "language": "Galician",
+      "translators": [
+        {
+          "name": "Diego Blanco",
+          "github": "diego-treitos"
+        }
+      ]
+    },
+    "de": {
+      "language": "German",
+      "translators": [
+        {
+          "name": "Igor Chubin"
+        },
+        {
+          "name": "MAGICC",
+          "url": "https://kthx.at"
+        },
+        {
+          "name": "Simon Neutert",
+          "github": "simonneutert"
+        }
+      ]
+    },
+    "el": {
+      "language": "Greek",
+      "translators": [
+        {
+          "name": "Panayotis Vryonis"
+        },
+        {
+          "name": "Petewg",
+          "github": "Petewg"
+        }
+      ]
+    },
+    "he": {
+      "language": "Hebrew",
+      "translators": [
+        {
+          "name": "E.R."
+        }
+      ]
+    },
+    "hi": {
+      "language": "Hindi",
+      "translators": [
+        {
+          "name": "Aakash Gajjar",
+          "github": "skyme5"
+        }
+      ]
+    },
+    "hu": {
+      "language": "Hungarian",
+      "translators": [
+        {
+          "name": "Mark Petruska"
+        }
+      ]
+    },
+    "is": {
+      "language": "Icelandic",
+      "translators": [
+        {
+          "name": "Óli G.",
+          "github": "dvergur"
+        },
+        {
+          "name": "Skúli Arnlaugsson",
+          "github": "Arnlaugsson"
+        }
+      ]
+    },
+    "id": {
+      "language": "Indonesian",
+      "translators": [
+        {
+          "name": "Andria Arisal",
+          "github": "andria009"
+        }
+      ]
+    },
+    "ia": {
+      "language": "Interlingua",
+      "translators": [
+        {
+          "name": "Dustin Redmond",
+          "github": "dustinkredmond"
+        }
+      ]
+    },
+    "ga": {
+      "language": "Irish",
+      "translators": [
+        {
+          "name": "Robert Devereux",
+          "github": "RobertDev"
+        },
+        {
+          "name": "Conor O'Callaghan",
+          "github": "ivernus"
+        }
+      ]
+    },
+    "it": {
+      "language": "Italian",
+      "translators": [
+        {
+          "name": "Diego Maniacco"
+        },
+        {
+          "name": "Riccardo Volpe",
+          "github": "yitaverse"
+        }
+      ]
+    },
+    "ja": {
+      "language": "Japanese",
+      "translators": [
+        {
+          "name": "ryunix"
+        }
+      ]
+    },
+    "kk": {
+      "language": "Kazakh",
+      "translators": [
+        {
+          "name": "Akku Tutkusheva"
+        },
+        {
+          "name": "Oleg Tropinin"
+        }
+      ]
+    },
+    "ko": {
+      "language": "Korean",
+      "translators": [
+        {
+          "name": "Jeremy Bae",
+          "github": "opt9"
+        },
+        {
+          "name": "Jung Winter",
+          "github": "res_tin"
+        }
+      ]
+    },
+    "lv": {
+      "language": "Latvian",
+      "translators": [
+        {
+          "name": "Gunārs Danovskis"
+        },
+        {
+          "name": "Edgars Andersons",
+          "github": "eandersons"
+        }
+      ]
+    },
+    "lt": {
+      "language": "Lithuanian",
+      "translators": [
+        {
+          "name": "Juras Rutavičius"
+        }
+      ]
+    },
+    "mk": {
+      "language": "Macedonian",
+      "translators": [
+        {
+          "name": "Matej Plavevski",
+          "github": "MatejMecka"
+        }
+      ]
+    },
+    "mr": {
+      "language": "Marathi",
+      "translators": [
+        {
+          "name": "Sanket Pandit Garade",
+          "github": "sanketgarade"
+        }
+      ]
+    },
+    "nb": {
+      "language": "Norwegian",
+      "translators": [
+        {
+          "name": "Fredrik Fjeld",
+          "github": "fredrikfjeld"
+        }
+      ]
+    },
+    "nn": {
+      "language": "Nynorsk",
+      "translators": [
+        {
+          "name": "Kevin Brubeck Unhammer",
+          "url": "https://unhammer.org/k/"
+        }
+      ]
+    },
+    "oc": {
+      "language": "Occitan",
+      "translators": [
+        {
+          "name": "Quentin PAGÈS",
+          "github": "Quenty-tolosan"
+        }
+      ]
+    },
+    "fa": {
+      "language": "Persian",
+      "translators": [
+        {
+          "name": "Javad",
+          "github": "threadripper_"
+        },
+        {
+          "name": "kagetora66",
+          "github": "kagetora66"
+        }
+      ]
+    },
+    "pl": {
+      "language": "Polish",
+      "translators": [
+        {
+          "name": "Wojtek Łukasiewicz",
+          "github": "wojtuch"
+        }
+      ]
+    },
+    "pt": {
+      "language": "Portuguese",
+      "translators": [
+        {
+          "name": "Fernando Bitti Loureiro",
+          "github": "fbitti"
+        },
+        {
+          "name": "Hugo Carvalho",
+          "github": "hugok79"
+        }
+      ]
+    },
+    "ro": {
+      "language": "Romanian",
+      "translators": [
+        {
+          "name": "Gabriel Moruz"
+        }
+      ]
+    },
+    "ru": {
+      "language": "Russian",
+      "translators": [
+        {
+          "name": "Igor Chubin"
+        },
+        {
+          "name": "layerex",
+          "github": "layerex"
+        },
+        {
+          "name": "Vladimir Kalashnikov"
+        }
+      ]
+    },
+    "sr": {
+      "language": "Serbian",
+      "translators": [
+        {
+          "name": "Milan Stevanović",
+          "github": "FathVader"
+        }
+      ]
+    },
+    "sk": {
+      "language": "Slovak",
+      "translators": [
+        {
+          "name": "Juraj Kakody"
+        }
+      ]
+    },
+    "sl": {
+      "language": "Slovenian",
+      "translators": [
+        {
+          "name": "B.S."
+        }
+      ]
+    },
+    "es": {
+      "language": "Spanish",
+      "translators": [
+        {
+          "name": "Fernando Bitti Loureiro",
+          "github": "fbitti"
+        }
+      ]
+    },
+    "sv": {
+      "language": "Swedish",
+      "translators": [
+        {
+          "name": "John Eriksson"
+        }
+      ]
+    },
+    "sw": {
+      "language": "Swahili",
+      "translators": [
+        {
+          "name": "Joel Mukuthu"
+        }
+      ]
+    },
+    "ta": {
+      "language": "Tamil",
+      "translators": [
+        {
+          "name": "Parthiban",
+          "github": "parthi1984"
+        }
+      ]
+    },
+    "te": {
+      "language": "Telugu",
+      "translators": [
+        {
+          "name": "Pavan Srinivas Mamidala",
+          "github": "pavansrinivasmamidala"
+        },
+        {
+          "name": "Vishal Boddu",
+          "github": "bodduv"
+        }
+      ]
+    },
+    "th": {
+      "language": "Thai",
+      "translators": [
+        {
+          "name": "Vatunyoo Suwannapisit",
+          "github": "kerlos"
+        }
+      ]
+    },
+    "tr": {
+      "language": "Turkish",
+      "translators": [
+        {
+          "name": "Atabey Kaygun"
+        },
+        {
+          "name": "Yilmaz",
+          "github": "edigu"
+        },
+        {
+          "name": "Volkan Tokmak",
+          "github": "volkanto"
+        },
+        {
+          "name": "Oğuz Ersen"
+        }
+      ]
+    },
+    "uk": {
+      "language": "Ukrainian",
+      "translators": [
+        {
+          "name": "Igor Chubin"
+        },
+        {
+          "name": "Serhiy",
+          "github": "pavse"
+        }
+      ]
+    },
+    "uz": {
+      "language": "Uzbek",
+      "translators": [
+        {
+          "name": "Shukhrat Mukimov"
+        }
+      ]
+    },
+    "vi": {
+      "language": "Vietnamese",
+      "translators": [
+        {
+          "name": "Lưu Vĩnh Phúc",
+          "github": "phuclv90"
+        }
+      ]
+    },
+    "cy": {
+      "language": "Welsh",
+      "translators": [
+        {
+          "name": "Daniel Thomas"
+        }
+      ]
+    }
+  }
+}

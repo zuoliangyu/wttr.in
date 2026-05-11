@@ -1,0 +1,15 @@
+{
+  "code": "nl",
+  "name": "Dutch",
+  "locale": "nl_NL",
+  "translators": [
+    {
+      "name": "Youri Claes"
+    },
+    {
+      "name": "Edwin Martin",
+      "github": "edwinm"
+    }
+  ],
+  "full_translation": false
+}

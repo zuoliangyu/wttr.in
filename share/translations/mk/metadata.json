@@ -1,0 +1,12 @@
+{
+  "code": "mk",
+  "name": "Macedonian",
+  "locale": "mk_MK",
+  "translators": [
+    {
+      "name": "Matej Plavevski",
+      "github": "MatejMecka"
+    }
+  ],
+  "full_translation": false
+}

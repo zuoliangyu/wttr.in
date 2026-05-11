@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nHem estat incapaços de trobar la seva ubicació,\nper això l'hem portat fins Oymyakon,\nun dels llocs més freds i permanentment deshabitats del planeta.\n",
+  "UNKNOWN_LOCATION": "Ubicació desconeguda",
+  "LOCATION": "Ubicació",
+  "CAPACITY_LIMIT_REACHED": "\nDisculpa'ns, ens hem quedat momentàniament sense consultes al servei meteorològic.\nAquí t'oferim l'informe del temps a la ciutat per defecte (només per mostrar quin aspecte té).\nObtindrem noves consultes tan aviat com ens sigui possible.\nPots seguir https://x.com/igor_chubin per noves actualitzacions.\n======================================================================================\n",
+  "NEW_FEATURE": "Noves funcionalitats: noms d'ubicació multilingües \u001b[92mwttr.in/станция+Восток\u001b[0m (en UTF-8) i la ubicació de recerca \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (només cal afegir ~ abans)",
+  "FOLLOW_ME": "Segueix \u001b[46m\u001b[30m@igor_chubin\u001b[0m per actualitzacions de wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Informe del temps per a:"
+}

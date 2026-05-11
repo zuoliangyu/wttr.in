@@ -1,0 +1,12 @@
+{
+  "code": "th",
+  "name": "Thai",
+  "locale": "th_TH",
+  "translators": [
+    {
+      "name": "Vatunyoo Suwannapisit",
+      "github": "kerlos"
+    }
+  ],
+  "full_translation": false
+}

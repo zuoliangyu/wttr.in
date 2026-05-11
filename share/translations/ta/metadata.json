@@ -1,0 +1,12 @@
+{
+  "code": "ta",
+  "name": "Tamil",
+  "locale": "ta_IN",
+  "translators": [
+    {
+      "name": "Parthiban",
+      "github": "parthi1984"
+    }
+  ],
+  "full_translation": false
+}

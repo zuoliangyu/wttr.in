@@ -1,0 +1,11 @@
+{
+  "code": "hu",
+  "name": "Hungarian",
+  "locale": "hu_HU",
+  "translators": [
+    {
+      "name": "Mark Petruska"
+    }
+  ],
+  "full_translation": false
+}

@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\n我们无法找到您的位置,\n当前显示奥伊米亚康(Oymyakon)，这个星球上最冷的人类定居点。\n",
+  "UNKNOWN_LOCATION": "未知地点",
+  "LOCATION": "地点",
+  "CAPACITY_LIMIT_REACHED": "\n抱歉，当前天气服务不可用。\n以下显示默认城市（只对您可见）。\n我们将会尽快获取新数据。\n您可以通过 https://x.com/igor_chubin 获取最新动态。\n======================================================================================\n",
+  "NEW_FEATURE": "新功能：多语言地点名称 \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) 及地点搜索\u001b[92mwttr.in/~Kilimanjaro\u001b[0m （只需在名称前加~）",
+  "FOLLOW_ME": "关注 \u001b[46m\u001b[30m@igor_chubin\u001b[0m 获取 wttr.in 动态",
+  "CAPTION_WEATHER_REPORT_FOR": "天气预报："
+}

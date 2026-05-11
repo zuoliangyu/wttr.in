@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\n我們找不到您的位置\n所以我們帶您到奧伊米亞康，\n這個星球上有人類定居最冷之處。\n",
+  "UNKNOWN_LOCATION": "未知位置",
+  "LOCATION": "位置",
+  "CAPACITY_LIMIT_REACHED": "\n抱歉，目前天氣服務的查詢請求太多了。\n這裡是預設城市的天氣報告（只是為您展示它的外觀）。\n我們將盡快取得新的資料。\n您可以追蹤 https://x.com/igor_chubin 以取得更新。\n======================================================================================\n",
+  "NEW_FEATURE": "新功能：多語言地點名稱 \u001b[92mwttr.in/станция+Восток\u001b[0m （使用 UTF-8 編碼）與位置搜尋 \u001b[92mwttr.in/~Kilimanjaro\u001b[0m （只要在地點前加 ~ 就可以了）",
+  "FOLLOW_ME": "追蹤 \u001b[46m\u001b[30m@igor_chubin\u001b[0m 以取得更多 wttr.in 的動態",
+  "CAPTION_WEATHER_REPORT_FOR": "天氣報告："
+}

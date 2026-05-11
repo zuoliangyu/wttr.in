@@ -1,0 +1,11 @@
+{
+  "code": "lt",
+  "name": "Lithuanian",
+  "locale": "lt_LT",
+  "translators": [
+    {
+      "name": "Juras Rutavičius"
+    }
+  ],
+  "full_translation": false
+}

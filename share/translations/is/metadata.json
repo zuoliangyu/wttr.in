@@ -1,0 +1,16 @@
+{
+  "code": "is",
+  "name": "Icelandic",
+  "locale": "is_IS",
+  "translators": [
+    {
+      "name": "Óli G.",
+      "github": "dvergur"
+    },
+    {
+      "name": "Skúli Arnlaugsson",
+      "github": "Arnlaugsson"
+    }
+  ],
+  "full_translation": false
+}

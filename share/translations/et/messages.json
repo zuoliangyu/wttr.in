@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nMe ei suutnud tuvastada teie asukohta\nning seetõttu paigutasime teid Oymyakoni,\nmis on üks kõige külmemaid püsivalt asustatud paiku planeedil.\n",
+  "UNKNOWN_LOCATION": "Tundmatu asukoht",
+  "LOCATION": "Asukoht",
+  "CAPACITY_LIMIT_REACHED": "\nVabandage, kuid hetkel on päringud ilmateenusele piiratud.\nSelle asemel kuvame hetkel näidislinna ilmaprognoosi (näitamaks, kuidas see välja näeb).\nÜritame probleemi lahendada niipea kui võimalik.\nJälgige https://x.com/igor_chubin värskenduste jaoks.\n======================================================================================\n",
+  "NEW_FEATURE": "Uus funktsioon: mitmekeelsed asukohanimed \u001b[92mwttr.in/станция+Восток\u001b[0m (UTF-8 vormingus) ja asukoha otsing \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (lisa ~ enne)",
+  "FOLLOW_ME": "Jälgi \u001b[46m\u001b[30m@igor_chubin\u001b[0m wttr.in uudiste tarbeks",
+  "CAPTION_WEATHER_REPORT_FOR": "Ilmaprognoos:"
+}

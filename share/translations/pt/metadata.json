@@ -1,0 +1,16 @@
+{
+  "code": "pt",
+  "name": "Portuguese",
+  "locale": "pt_PT",
+  "translators": [
+    {
+      "name": "Fernando Bitti Loureiro",
+      "github": "fbitti"
+    },
+    {
+      "name": "Hugo Carvalho",
+      "github": "hugok79"
+    }
+  ],
+  "full_translation": false
+}

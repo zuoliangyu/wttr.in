@@ -1,0 +1,12 @@
+{
+  "code": "da",
+  "name": "Danish",
+  "locale": "da_DK",
+  "translators": [
+    {
+      "name": "Kim Schulz",
+      "github": "kimusan"
+    }
+  ],
+  "full_translation": false
+}

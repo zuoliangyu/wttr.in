@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nVi kunne ikke finne din lokasjon,\nså her får du Ojmjakon, et av de kaldeste bebodde stedene på planeten.\nVi håper været er bedre hos deg!\n",
+  "UNKNOWN_LOCATION": "Ukjent sted",
+  "LOCATION": "Sted",
+  "CAPACITY_LIMIT_REACHED": "\nBeklager, vi kan ikke nå værtjenesten for øyeblikket.\nHer er værmeldingen for standardbyen så du får se hvordan tjenesten ser ut.\nVi vil forsøke å fikse problemet så snart som mulig.\nDu kan følge https://x.com/igor_chubin for oppdateringer.\n======================================================================================\n",
+  "NEW_FEATURE": "Ny funksjon: flerspråklige stedsnavn \u001b[92mwttr.in/станция+Восток\u001b[0m (i UTF-8) og lokasjonssøk \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (bare legg til ~ foran)",
+  "FOLLOW_ME": "Følg \u001b[46m\u001b[30m@igor_chubin\u001b[0m for wttr.in oppdateringer",
+  "CAPTION_WEATHER_REPORT_FOR": "Værmelding for:"
+}

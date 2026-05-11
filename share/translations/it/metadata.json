@@ -1,0 +1,15 @@
+{
+  "code": "it",
+  "name": "Italian",
+  "locale": "it_IT",
+  "translators": [
+    {
+      "name": "Diego Maniacco"
+    },
+    {
+      "name": "Riccardo Volpe",
+      "github": "yitaverse"
+    }
+  ],
+  "full_translation": true
+}

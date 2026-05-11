@@ -1,0 +1,11 @@
+{
+  "code": "uz",
+  "name": "Uzbek",
+  "locale": "uz_UZ",
+  "translators": [
+    {
+      "name": "Shukhrat Mukimov"
+    }
+  ],
+  "full_translation": false
+}

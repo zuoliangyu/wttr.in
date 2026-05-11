@@ -1,0 +1,19 @@
+{
+  "code": "de",
+  "name": "German",
+  "locale": "de_DE",
+  "translators": [
+    {
+      "name": "Igor Chubin"
+    },
+    {
+      "name": "MAGICC",
+      "url": "https://kthx.at"
+    },
+    {
+      "name": "Simon Neutert",
+      "github": "simonneutert"
+    }
+  ],
+  "full_translation": true
+}

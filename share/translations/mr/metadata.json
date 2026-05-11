@@ -1,0 +1,12 @@
+{
+  "code": "mr",
+  "name": "Marathi",
+  "locale": "mr_IN",
+  "translators": [
+    {
+      "name": "Sanket Pandit Garade",
+      "github": "sanketgarade"
+    }
+  ],
+  "full_translation": false
+}

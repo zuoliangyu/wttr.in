@@ -1,0 +1,16 @@
+{
+  "code": "ko",
+  "name": "Korean",
+  "locale": "ko_KR",
+  "translators": [
+    {
+      "name": "Jeremy Bae",
+      "github": "opt9"
+    },
+    {
+      "name": "Jung Winter",
+      "github": "res_tin"
+    }
+  ],
+  "full_translation": false
+}

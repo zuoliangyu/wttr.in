@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNu v-am putut identifica localitatea, prin urmare vă arătăm vremea din Oimiakon,\nuna dintre cele mai reci localități permanent locuite de pe planetă.\nSperăm că aveți vreme mai bună!\n",
+  "UNKNOWN_LOCATION": "Localitate necunoscută",
+  "LOCATION": "Localitate",
+  "CAPACITY_LIMIT_REACHED": "\nNe pare rău, momentan am epuizat cererile alocate de către serviciul de prognoză meteo.\nVă arătăm prognoza meteo pentru localitatea implicită (ca exemplu, să vedeți cum arată).\nVom obține alocarea de cereri noi cât de curând posibil.\nPuteți urmări https://x.com/igor_chubin pentru actualizări.\n======================================================================================\n",
+  "NEW_FEATURE": "Funcționalitate nouă: nume de localități multilingve \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) și căutare de localități \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (adăuați ~ în față)",
+  "FOLLOW_ME": "Urmăriți \u001b[46m\u001b[30m@igor_chubin\u001b[0m pentru actualizări despre wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Prognoza meteo pentru:"
+}

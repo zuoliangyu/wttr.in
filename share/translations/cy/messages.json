@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNi darganfyddwyd eich lleoliad,\nfelly rydym wedi dod â chi i Oymyakon,\nun o'r llefydd oeraf ar y blaned ble mae pobl yn dal i fyw!\n",
+  "UNKNOWN_LOCATION": "Lleoliad anhysbys",
+  "LOCATION": "Lleoliad",
+  "CAPACITY_LIMIT_REACHED": "\nRydym yn brin o ymholiadau i'r gwasanaeth tywydd ar hyn o bryd.\nFelly dyma'r adroddiad tywydd ar gyfer y ddinas ragosod (er mwyn arddangos sut mae'n edrych).\nByddwn gyda ymholiadau newydd yn fuan.\nGellir dilyn https://x.com/igor_chubin i gael newyddion pellach.\n======================================================================================\n",
+  "NEW_FEATURE": "Nodwedd newydd: enwau lleoliadau amlieithog \u001b[92mwttr.in/станция+Восток\u001b[0m (yn UTF-8) a chwilio am leoliad \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (ychwanegwch ~ yn gyntaf)",
+  "FOLLOW_ME": "Dilyner \u001b[46m\u001b[30m@igor_Chubin\u001b[0m am diweddariadau wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Adroddiad tywydd ar gyfer:"
+}

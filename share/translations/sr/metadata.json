@@ -1,0 +1,12 @@
+{
+  "code": "sr",
+  "name": "Serbian",
+  "locale": "sr_RS",
+  "translators": [
+    {
+      "name": "Milan Stevanović",
+      "github": "FathVader"
+    }
+  ],
+  "full_translation": false
+}

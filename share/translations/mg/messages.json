@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nTsy hita ny toerana misy anao koa nentinay tany Oymyakon ianao,\niray amin'ireo toerana mangatsiaka indrindra tsisy mponina eto an-tany.\n",
+  "UNKNOWN_LOCATION": "Toerana tsy fantatra",
+  "LOCATION": "Toerana",
+  "CAPACITY_LIMIT_REACHED": "\nMiala tsiny fa misedra olana ny sampan-draharaha momba ny toetrandro amin'izao fotoana izao.\nIty ny tatitra momba ny toetr'andro ho an'ny tanàna mahazatra (mba hampisehoana anao ny endriny).\nHaivaly aminao haingana ny fangatahanao.\nAzonao atao ny manaraka ny pejy https://x.com/igor_chubin.\n",
+  "NEW_FEATURE": "Fanatsrana vaovao: anarana toerana amin'ny fiteny maro\u001b[92mwttr.in/станция+Восток\u001b[0m (en UTF-8) sy fitadiavana toerana \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (ampio ~ fotsiny eo aloha)",
+  "FOLLOW_ME": "Araho ao ny pejy \u001b[46m\u001b[30m@igor_Chubin\u001b[0m raha toa ka te hahazo vaovao momban'ny wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Toetr'andro any :"
+}

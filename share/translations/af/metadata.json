@@ -1,0 +1,12 @@
+{
+  "code": "af",
+  "name": "Afrikaans",
+  "locale": "af_ZA",
+  "translators": [
+    {
+      "name": "Casper Labuschage",
+      "github": "casperl"
+    }
+  ],
+  "full_translation": false
+}
