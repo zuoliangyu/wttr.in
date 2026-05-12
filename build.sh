@@ -34,6 +34,7 @@ ASSET_ROOTS=(
     "share/static"
     "share/pages"
     "share/templates"
+    "share/translations"
 )
 
 # Colors
