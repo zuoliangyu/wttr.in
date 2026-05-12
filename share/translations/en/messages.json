@@ -1,5 +1,5 @@
 {
-  "CAPTION": "Weather report for:",
+  "CAPTION_WEATHER_REPORT_FOR": "Weather report for:",
   "LOCATION": "Location",
   "UNKNOWN_LOCATION": "Unknown location",
   "CAPACITY_LIMIT_REACHED": "\nSorry, we are running out of queries to the weather service at the moment.\nHere is the weather report for the default city (just to show you what it looks like).\nWe will get new queries as soon as possible.\nYou can follow https://twitter.com/igor_chubin for the updates.\n======================================================================================\n",

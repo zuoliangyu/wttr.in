@@ -48,7 +48,7 @@ func (r *V2Renderer) Render(q domain.Query, localizer w.Localizer) (domain.Rende
 
 	// Date header (3 days)
 	buf.WriteString("\n\n")
-	buf.WriteString(drawDate(loc))
+	buf.WriteString(drawDate(loc, l10n))
 
 	// Temperature diagram
 	tempValues := extractAllHourlyFloat(weather, func(h domain.Hourly) string {
@@ -94,7 +94,7 @@ func (r *V2Renderer) Render(q domain.Query, localizer w.Localizer) (domain.Rende
 	buf.WriteString("\n\n")
 
 	// Frame + optional textual information
-	content := addFrame(buf.String(), 72, opts)
+	content := addFrame(buf.String(), 72, opts, l10n)
 
 	if !opts.Quiet && !opts.Superquiet && !opts.NoTerminal {
 		content += textualInformation(&q, loc, opts, l10n)
@@ -109,7 +109,7 @@ func (r *V2Renderer) Render(q domain.Query, localizer w.Localizer) (domain.Rende
 // Remaining drawing functions (not in helpers.go)
 // ===================================================================
 
-func addFrame(content string, width int, opts *options.Options) string {
+func addFrame(content string, width int, opts *options.Options, l10n localization.L10n) string {
 	if opts.NoCaption {
 		return content
 	}
@@ -123,16 +123,20 @@ func addFrame(content string, width int, opts *options.Options) string {
 		lines[i] = "│" + lines[i] + strings.Repeat(" ", spacesNumber) + "│"
 	}
 
-	title := "  Weather report for: "
+	title := l10n.Text("CAPTION_WEATHER_REPORT_FOR")
 	if opts.Superquiet {
 		title = ""
 	} else if !opts.Quiet || !opts.NoCity {
-		title += opts.Location + "  "
+		title += " " + opts.Location
 	} else if opts.Quiet {
-		title = opts.Location + "  "
+		title = opts.Location
 	}
 
-	caption := "┤" + title + "├"
+	caption := ""
+	if !opts.Superquiet {
+		caption = "┤ " + title + " ├"
+	}
+
 	frameTop := "┌" + caption + strings.Repeat("─", width-utf8.RuneCountInString(caption)) + "┐\n"
 
 	return frameTop + strings.Join(lines, "\n") + "\n" +
