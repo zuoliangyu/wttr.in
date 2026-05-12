@@ -35,7 +35,7 @@ func NewBundle(fs embed.FS) *Bundle {
 
 // loadAll preloads every language found in share/translations/
 func (b *Bundle) loadAll() {
-	entries, err := b.fs.ReadDir("share/translations")
+	entries, err := b.fs.ReadDir("embed/share/translations")
 	if err != nil {
 		logrus.WithError(err).Fatal("Failed to read translations directory")
 	}
@@ -57,7 +57,7 @@ func (b *Bundle) loadAll() {
 		b.langs[lang] = data
 
 		isFull := false
-		metaPath := fmt.Sprintf("share/translations/%s/metadata.json", lang)
+		metaPath := fmt.Sprintf("embed/share/translations/%s/metadata.json", lang)
 		if meta, err := b.fs.ReadFile(metaPath); err == nil {
 			var m struct {
 				FullTranslation bool `json:"full_translation"`
@@ -157,7 +157,7 @@ func (b *Bundle) ConditionByName(lang, englishName string) string {
 // File returns raw file content (help.txt, conditions.txt, etc.)
 func (b *Bundle) File(lang, name string) (string, error) {
 	lang = normalizeLang(lang)
-	p := fmt.Sprintf("share/translations/%s/%s", lang, name)
+	p := fmt.Sprintf("embed/share/translations/%s/%s", lang, name)
 
 	data, err := b.fs.ReadFile(p)
 	if err != nil {
@@ -177,7 +177,7 @@ func (b *Bundle) loadLanguage(lang string) *languageData {
 		byEnglish:  make(map[string]string),
 	}
 
-	base := fmt.Sprintf("share/translations/%s/", lang)
+	base := fmt.Sprintf("embed/share/translations/%s/", lang)
 
 	// Load messages + views
 	for _, filename := range []string{"messages.json", "v1.json", "v2.json"} {
