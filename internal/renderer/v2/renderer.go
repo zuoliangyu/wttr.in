@@ -9,6 +9,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/chubin/wttr.in/internal/domain"
+	"github.com/chubin/wttr.in/internal/localization"
 	"github.com/chubin/wttr.in/internal/options"
 	w "github.com/chubin/wttr.in/internal/weather"
 )
@@ -21,6 +22,8 @@ type V2Renderer struct{}
 func NewV2Renderer() *V2Renderer {
 	return &V2Renderer{}
 }
+
+type Localize func(text string) string
 
 // Render converts the query's weather JSON into the v2 terminal weather report.
 func (r *V2Renderer) Render(q domain.Query, localizer w.Localizer) (domain.RenderOutput, error) {
@@ -39,6 +42,7 @@ func (r *V2Renderer) Render(q domain.Query, localizer w.Localizer) (domain.Rende
 
 	opts := q.Options
 	loc := q.Location
+	l10n := localization.New(localizer, q.Options)
 
 	var buf bytes.Buffer
 
@@ -93,7 +97,7 @@ func (r *V2Renderer) Render(q domain.Query, localizer w.Localizer) (domain.Rende
 	content := addFrame(buf.String(), 72, opts)
 
 	if !opts.Quiet && !opts.Superquiet && !opts.NoTerminal {
-		content += textualInformation(&q, loc, opts)
+		content += textualInformation(&q, loc, opts, l10n)
 	}
 
 	return domain.RenderOutput{
