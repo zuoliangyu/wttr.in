@@ -7,6 +7,7 @@ import (
 
 	"github.com/klauspost/lctime"
 
+	"github.com/chubin/wttr.in/internal/localization"
 	"github.com/chubin/wttr.in/internal/options"
 )
 
@@ -16,7 +17,7 @@ func slotTimes() []int {
 }
 
 // printDay renders a single forecast day in the classic v1 box style.
-func (r *V1Renderer) printDay(day weather, opts *options.Options) ([]string, error) {
+func (r *V1Renderer) printDay(day weather, opts *options.Options, l10n localization.L10n) ([]string, error) {
 	if opts == nil {
 		opts = &options.Options{}
 	}
@@ -40,16 +41,18 @@ func (r *V1Renderer) printDay(day weather, opts *options.Options) ([]string, err
 	}
 
 	// Build date header with localization
-	dateName, err := r.formatDate(day.Date, opts)
+	dateName, err := r.formatDate(day.Date, opts, l10n)
 	if err != nil {
 		return nil, err
 	}
 	dateFmt := "┤" + justifyCenter(dateName, 12) + "├"
 
 	// Daytime translations (Morning, Noon, Evening, Night)
-	trans := daytimeTranslation()["en"]
-	if t, ok := daytimeTranslation()[opts.Lang]; ok {
-		trans = t
+	trans := []string{
+		l10n.Text("CAPTION_MORNING"),
+		l10n.Text("CAPTION_NOON"),
+		l10n.Text("CAPTION_EVENING"),
+		l10n.Text("CAPTION_NIGHT"),
 	}
 
 	// Narrow mode layout
@@ -119,16 +122,13 @@ func (r *V1Renderer) selectBestHourlySlots(hourly []cond) [4]cond {
 }
 
 // formatDate returns localized and optionally reversed date string for the header.
-func (r *V1Renderer) formatDate(dateStr string, opts *options.Options) (string, error) {
+func (r *V1Renderer) formatDate(dateStr string, opts *options.Options, l10n localization.L10n) (string, error) {
 	d, err := time.Parse("2006-01-02", dateStr)
 	if err != nil {
 		return "", fmt.Errorf("invalid date %s: %w", dateStr, err)
 	}
 
-	localeStr := "en_US"
-	if val, ok := locale()[opts.Lang]; ok {
-		localeStr = val
-	}
+	localeStr := l10n.Text("LOCALE")
 	if err := lctime.SetLocale(localeStr); err != nil {
 		return "", err
 	}
