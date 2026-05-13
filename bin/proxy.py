@@ -50,7 +50,6 @@ from globals import (
     MISSING_TRANSLATION_LOG,
 )
 from metno import create_standard_json_from_metno, metno_request
-from translations import PROXY_LANGS
 
 # pylint: enable=wrong-import-position
 
@@ -194,105 +193,6 @@ def _patch_greek(original):
     return original.replace("Ηλιόλουστη/ο", "Ηλιόλουστη")
 
 
-def add_translations(content, lang):
-    """
-    Add `lang` translation to `content` (JSON)
-    returned by the data source
-    """
-
-    if content == "{}":
-        return {}
-
-    languages_to_translate = TRANSLATIONS.keys()
-    try:
-        d = json.loads(content)  # pylint: disable=invalid-name
-    except (ValueError, TypeError) as exception:
-        print("---")
-        print(exception)
-        print("---")
-        return {}
-
-    if "current_condition" not in d["data"]:
-        return content
-
-    try:
-        weather_condition = (
-            d["data"]["current_condition"][0]["weatherDesc"][0]["value"]
-            .capitalize()
-            .strip()
-        )
-        d["data"]["current_condition"][0]["weatherDesc"][0]["value"] = weather_condition
-        if lang in languages_to_translate:
-            d["data"]["current_condition"][0]["lang_%s" % lang] = [
-                {"value": translate(weather_condition, lang)}
-            ]
-            d["data"]["current_condition"][0]["lang_xx"] = d["data"][
-                "current_condition"
-            ][0]["lang_%s" % lang]
-        elif lang == "sr":
-            d["data"]["current_condition"][0]["lang_%s" % lang] = [
-                {
-                    "value": cyr(
-                        d["data"]["current_condition"][0]["lang_%s" % lang][0]["value"]
-                    )
-                }
-            ]
-            d["data"]["current_condition"][0]["lang_xx"] = d["data"][
-                "current_condition"
-            ][0]["lang_%s" % lang]
-        elif lang == "el":
-            d["data"]["current_condition"][0]["lang_%s" % lang] = [
-                {
-                    "value": _patch_greek(
-                        d["data"]["current_condition"][0]["lang_%s" % lang][0]["value"]
-                    )
-                }
-            ]
-            d["data"]["current_condition"][0]["lang_xx"] = d["data"][
-                "current_condition"
-            ][0]["lang_%s" % lang]
-        elif lang == "sr-lat":
-            d["data"]["current_condition"][0]["lang_%s" % lang] = [
-                {"value": d["data"]["current_condition"][0]["lang_sr"][0]["value"]}
-            ]
-            d["data"]["current_condition"][0]["lang_xx"] = d["data"][
-                "current_condition"
-            ][0]["lang_%s" % lang]
-
-        fixed_weather = []
-        for w in d["data"]["weather"]:  # pylint: disable=invalid-name
-            fixed_hourly = []
-            for h in w["hourly"]:  # pylint: disable=invalid-name
-                weather_condition = h["weatherDesc"][0]["value"].strip()
-                if lang in languages_to_translate:
-                    h["lang_%s" % lang] = [
-                        {"value": translate(weather_condition, lang)}
-                    ]
-                    h["lang_xx"] = h["lang_%s" % lang]
-                elif lang == "sr":
-                    h["lang_%s" % lang] = [
-                        {"value": cyr(h["lang_%s" % lang][0]["value"])}
-                    ]
-                    h["lang_xx"] = h["lang_%s" % lang]
-                elif lang == "el":
-                    h["lang_%s" % lang] = [
-                        {"value": _patch_greek(h["lang_%s" % lang][0]["value"])}
-                    ]
-                    h["lang_xx"] = h["lang_%s" % lang]
-                elif lang == "sr-lat":
-                    h["lang_%s" % lang] = [{"value": h["lang_sr"][0]["value"]}]
-                    h["lang_xx"] = h["lang_%s" % lang]
-                fixed_hourly.append(h)
-            w["hourly"] = fixed_hourly
-            fixed_weather.append(w)
-        d["data"]["weather"] = fixed_weather
-
-        content = json.dumps(d)
-    except (IndexError, ValueError) as exception:
-        print(exception)
-    return content
-
-
 def _fetch_content_and_headers(path, query_string, **kwargs):
     content, headers = _load_content_and_headers(path, query_string)
 
@@ -396,7 +296,6 @@ def proxy(path):
 
     # _log_query(path, query_string, error)
 
-    content = add_translations(content, lang)
     if "Unable to find any" in content:
         print(query_string)
 
