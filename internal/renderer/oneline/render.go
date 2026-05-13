@@ -17,7 +17,7 @@ func RenderConditionFullName(ctx *RenderContext) string {
 		return ctx.Data.WeatherDesc
 	}
 
-	query := fmt.Sprintf(".data.current_condition[0].lang_%s[0].value", "xx")
+	query := fmt.Sprintf(".current_condition[0].lang_%s[0].value", "xx")
 
 	val, err := GetStringValue(ctx.DataRaw, query)
 	if err != nil {
