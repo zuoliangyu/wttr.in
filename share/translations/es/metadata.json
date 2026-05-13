@@ -1,0 +1,13 @@
+{
+  "code": "es",
+  "name": "Spanish",
+  "locale": "es_ES",
+  "translators": [
+    {
+      "name": "Fernando Bitti Loureiro",
+      "github": "fbitti"
+    }
+  ],
+  "full_translation": true,
+  "issue": 533
+}

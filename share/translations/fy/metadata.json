@@ -1,0 +1,12 @@
+{
+  "code": "fy",
+  "name": "Frisian",
+  "locale": "fy_NL",
+  "translators": [
+    {
+      "name": "Anne Douwe Bouma",
+      "github": "anned20"
+    }
+  ],
+  "full_translation": false
+}

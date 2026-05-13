@@ -1,0 +1,18 @@
+{
+  "code": "az",
+  "name": "Azerbaijani",
+  "locale": "az_AZ",
+  "translators": [
+    {
+      "name": "Dmytro Nikitiuk"
+    },
+    {
+      "name": "Elsevar Abbasov"
+    },
+    {
+      "name": "Eldar Velibekov",
+      "github": "welibekov"
+    }
+  ],
+  "full_translation": false
+}

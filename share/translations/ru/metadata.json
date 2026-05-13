@@ -1,0 +1,19 @@
+{
+  "code": "ru",
+  "name": "Russian",
+  "locale": "ru_RU",
+  "translators": [
+    {
+      "name": "Igor Chubin"
+    },
+    {
+      "name": "layerex",
+      "github": "layerex"
+    },
+    {
+      "name": "Vladimir Kalashnikov"
+    }
+  ],
+  "full_translation": true,
+  "issue": 535
+}

@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nAvèm pas pogut determinar vòstra posicion,\nVos avèm doncas menat a Oïmiakon,\nun dels endreches mai freds abitat permanéncia del monde.\nEsperam que fa melhor en çò vòstre !\n",
+  "UNKNOWN_LOCATION": "Emplaçament desconegut",
+  "LOCATION": "Emplaçament",
+  "CAPACITY_LIMIT_REACHED": "\nO planhèm, avèm pas mai de requèstas cap al servici metèo.\nVaquí las prevision metèo de l'emplaçament per defaut (per vos donar un apercebut).\nPoirem lèu ne far de novèlas.\nPodètz seguir https://x.com/igor_chubin per demorar informat.\n======================================================================================\n",
+  "NEW_FEATURE": "Novèla foncionalitat : nom de lòc multilenga \u001b[92mwttr.in/станция+Восток\u001b[0m (en UTF-8) e recèrca de lòc \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (solament ajustatz ~ abans)",
+  "FOLLOW_ME": "Seguissètz \u001b[46m\u001b[30m@igor_Chubin\u001b[0m per demorar informat sus wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Previsions metèo per :"
+}

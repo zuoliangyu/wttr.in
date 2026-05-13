@@ -1,0 +1,20 @@
+{
+  "code": "hy",
+  "name": "Armenian",
+  "locale": "hy_AM",
+  "translators": [
+    {
+      "name": "Aram Bayadyan",
+      "github": "aramix"
+    },
+    {
+      "name": "Mikayel Ghazaryan",
+      "github": "mkdotam"
+    },
+    {
+      "name": "Grigor Khachatryan",
+      "github": "grigortw"
+    }
+  ],
+  "full_translation": false
+}

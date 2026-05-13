@@ -7,8 +7,8 @@ import (
 	"path"
 	"strings"
 
+	"github.com/chubin/wttr.in/internal/defs"
 	"github.com/chubin/wttr.in/internal/options"
-	"github.com/chubin/wttr.in/internal/spec"
 	"github.com/chubin/wttr.in/internal/util"
 )
 
@@ -203,7 +203,7 @@ func ApplyAutoFixes(opts *options.Options) {
 //	"Berlin_u_300x150.png"       → use_imperial=true, width=300, height=150
 //
 // Returns location separately so caller can decide what to do with it.
-func ParseOptionsInFilename(filename string, cfg *spec.WttrInOptions) (*options.Options, string, error) {
+func ParseOptionsInFilename(filename string, cfg *defs.WttrInOptions) (*options.Options, string, error) {
 	if cfg == nil {
 		return nil, "", fmt.Errorf("config required")
 	}

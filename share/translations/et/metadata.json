@@ -1,0 +1,13 @@
+{
+  "code": "et",
+  "name": "Estonian",
+  "locale": "et_EE",
+  "translators": [
+    {
+      "name": "Jaan Jänesmäe",
+      "github": "janesmae"
+    }
+  ],
+  "full_translation": false,
+  "issue": 287
+}

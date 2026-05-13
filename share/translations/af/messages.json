@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nOns kon nie u ligging opspoor nie\ngevolglik het ons vir u na Oymyakon geneem,\neen van die koudste permanent bewoonde plekke op aarde.\n",
+  "UNKNOWN_LOCATION": "Onbekende ligging",
+  "LOCATION": "Ligging",
+  "CAPACITY_LIMIT_REACHED": "\nVerskoning, ons oorskry tans die vermoë om navrae aan die weerdiens te rig.\nHier is die weerberig van 'n voorbeeld ligging (bloot om aan u te wys hoe dit lyk).\nOns sal weereens nuwe navrae kan hanteer so gou as moontlik.\nU kan vir https://x.com/igor_chubin volg vir opdaterings.\n======================================================================================\n",
+  "NEW_FEATURE": "Nuwe eienskap: veeltalige name vir liggings \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) en ligging soek \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (plaas net ~ vooraan)",
+  "FOLLOW_ME": "Volg \u001b[46m\u001b[30m@igor_chubin\u001b[0m vir wttr.in opdaterings",
+  "CAPTION_WEATHER_REPORT_FOR": "Weer verslag vir:"
+}

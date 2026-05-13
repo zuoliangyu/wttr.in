@@ -1,0 +1,15 @@
+{
+  "code": "be",
+  "name": "Belarusian",
+  "locale": "be_BY",
+  "translators": [
+    {
+      "name": "Igor Chubin"
+    },
+    {
+      "name": "Anton Zhavoronkov",
+      "github": "edogby"
+    }
+  ],
+  "full_translation": false
+}

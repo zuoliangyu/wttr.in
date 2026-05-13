@@ -7,18 +7,18 @@ import (
 
 	"dario.cat/mergo"
 
+	"github.com/chubin/wttr.in/internal/defs"
 	"github.com/chubin/wttr.in/internal/options"
-	"github.com/chubin/wttr.in/internal/spec"
 	"github.com/chubin/wttr.in/internal/weather"
 )
 
 // strictQueryParser implements QueryParser using the existing options.ParseQueryString
 type strictQueryParser struct {
-	config *spec.WttrInOptions
+	config *defs.WttrInOptions
 }
 
 // NewQueryParser returns a new QueryParser that uses the provided configuration
-func NewQueryParser(config *spec.WttrInOptions) weather.QueryParser {
+func NewQueryParser(config *defs.WttrInOptions) weather.QueryParser {
 	if config == nil {
 		panic("config must not be nil")
 	}

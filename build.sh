@@ -26,13 +26,15 @@ FONTS["LexiGulim.ttf"]="/usr/share/fonts/truetype/lexi/LexiGulim.ttf:fonts-lexi-
 FONTS["Symbola_hint.ttf"]="/usr/share/fonts/truetype/ancient-scripts/Symbola_hint.ttf:fonts-symbola"
 FONTS["NotoSansDevanagari-Regular.ttf"]="/usr/share/fonts/truetype/noto/NotoSansDevanagari-Regular.ttf:fonts-noto-core"
 FONTS["NotoSansBengali-Regular.ttf"]="/usr/share/fonts/truetype/noto/NotoSansBengali-Regular.ttf:fonts-noto-core"
+FONTS["NotoSansGurmukhi-Regular.ttf"]="/usr/share/fonts/truetype/noto/NotoSansGurmukhi-Regular.ttf:fonts-noto-core"
 
 # ─── Asset roots (non-font) ───────────────────────────────────────────────────
 ASSET_ROOTS=(
-    "spec"
+    "share/defs"
     "share/static"
     "share/pages"
     "share/templates"
+    "share/translations"
 )
 
 # Colors

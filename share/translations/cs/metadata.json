@@ -1,0 +1,15 @@
+{
+  "code": "cs",
+  "name": "Czech",
+  "locale": "cs_CZ",
+  "translators": [
+    {
+      "name": "Juraj Kakody"
+    },
+    {
+      "name": "Ondřej Povolný",
+      "github": "Remogeus"
+    }
+  ],
+  "full_translation": false
+}

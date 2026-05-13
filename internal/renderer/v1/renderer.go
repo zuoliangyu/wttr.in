@@ -9,9 +9,11 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/chubin/wttr.in/internal/domain"
-	"github.com/chubin/wttr.in/internal/options"
 	"github.com/clipperhouse/displaywidth"
+
+	"github.com/chubin/wttr.in/internal/domain"
+	"github.com/chubin/wttr.in/internal/localization"
+	"github.com/chubin/wttr.in/internal/options"
 )
 
 // V1Renderer renders weather in the classic wttr.in v1 style.
@@ -28,7 +30,7 @@ func NewV1Renderer() *V1Renderer {
 }
 
 // Render implements the weather.Renderer interface.
-func (r *V1Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
+func (r *V1Renderer) Render(query domain.Query, localizer localization.Localizer) (domain.RenderOutput, error) {
 	if query.Weather == nil || len(*query.Weather) == 0 {
 		return domain.RenderOutput{}, errors.New("no weather data provided")
 	}
@@ -43,6 +45,7 @@ func (r *V1Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
 		return domain.RenderOutput{}, errors.New("no current condition data available")
 	}
 
+	l10n := localization.New(localizer, query.Options)
 	dataResp := ConvertWeather(data)
 
 	opts := query.Options
@@ -65,10 +68,7 @@ func (r *V1Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
 	r.rightToLeft = (opts.Lang == "he" || opts.Lang == "ar" || opts.Lang == "fa")
 
 	// Build caption
-	caption := "Weather report"
-	if localized, ok := localizedCaption()[opts.Lang]; ok {
-		caption = localized
-	}
+	caption := l10n.Text("CAPTION_WEATHER_REPORT_FOR")
 
 	var header string
 	if opts.Quiet || opts.NoCaption {
@@ -83,7 +83,7 @@ func (r *V1Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
 			space := strings.Repeat(" ", padding)
 			header = space + caption + "\n\n"
 		} else {
-			header = fmt.Sprintf("%s: %s\n\n", caption, locationName)
+			header = fmt.Sprintf("%s %s\n\n", caption, locationName)
 		}
 	}
 
@@ -117,7 +117,7 @@ func (r *V1Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
 			if i >= numDays {
 				break
 			}
-			lines, err := r.printDay(day, opts)
+			lines, err := r.printDay(day, opts, l10n)
 			if err != nil {
 				return domain.RenderOutput{}, err
 			}
@@ -132,11 +132,13 @@ func (r *V1Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
 	if !opts.CurrentOnly {
 
 		if !opts.Quiet && !opts.Superquiet && !opts.NoCity {
-			sb.WriteString(fmt.Sprintf("Location: %s [%v,%v]\n", query.Location.FullAddress, query.Location.Latitude, query.Location.Longitude))
+			sb.WriteString(fmt.Sprintf("%s: %s [%v,%v]\n",
+				l10n.Text("LOCATION"),
+				query.Location.FullAddress, query.Location.Latitude, query.Location.Longitude))
 		}
 
 		if opts.Output != "html" && !opts.NoFollowLine {
-			followICforUpdates := `Follow [46m[30m@igor_chubin[0m for wttr.in updates`
+			followICforUpdates := l10n.Text("FOLLOW_ME")
 			sb.WriteString("\n" + followICforUpdates + "\n")
 		}
 	}

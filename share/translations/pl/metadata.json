@@ -1,0 +1,12 @@
+{
+  "code": "pl",
+  "name": "Polish",
+  "locale": "pl_PL",
+  "translators": [
+    {
+      "name": "Wojtek Łukasiewicz",
+      "github": "wojtuch"
+    }
+  ],
+  "full_translation": false
+}

@@ -1,0 +1,12 @@
+{
+  "code": "nn",
+  "name": "Nynorsk",
+  "locale": "nn_NO",
+  "translators": [
+    {
+      "name": "Kevin Brubeck Unhammer",
+      "url": "https://unhammer.org/k/"
+    }
+  ],
+  "full_translation": false
+}

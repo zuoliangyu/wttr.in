@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNon logramos atopar a túa localización\npolo que te trouxemos até Oimiakón,\nun dos lugares máis fríos e permamentemente deshabitados do planeta.\n",
+  "UNKNOWN_LOCATION": "Localización descoñecida",
+  "LOCATION": "Localización",
+  "CAPACITY_LIMIT_REACHED": "\nDesculpa, estamos a chegar ao límite de peticións ao servizo meteorolóxico neste momento.\nAquí está a previsión do tempo para a cidade por defecto (tan só para amosarche un exemplo).\nImos obter máis peticións tan pronto como poidamos.\nPodes seguir https://x.com/igor_chubin para estares actualizada.\n======================================================================================\n",
+  "NEW_FEATURE": "Nova funcionalidade: nomes de localizacións en varios idiomas\u001b[92mwttr.in/станция+Восток\u001b[0m (en UTF-8) e procuras de localizacións \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (engade ~ antes)",
+  "FOLLOW_ME": "Segue a \u001b[46m\u001b[30m@igor_chubin\u001b[0m para actualizacións sobre wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Previsión do tempo en:"
+}

@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNepodařilo se nám najít vaši polohu,\ntakže jsme vás přivedli do Ojmjakonu.\nJe to jedno z nejchladnějších trvale obydlených míst na planetě.\nDoufáme, že budete mít lepší počasí!\n",
+  "UNKNOWN_LOCATION": "Neznámá poloha",
+  "LOCATION": "Poloha",
+  "CAPACITY_LIMIT_REACHED": "\nOmlouváme se, ale aktuálně nám dochází počet dotazů na službu počasí.\nZde je předpověď počasí pro výchozí město (abyste viděli, jak to vypadá).\nProblém bude vyřešen co nejdříve.\nAktualizace můžete následovat na https://x.com/igor_chubin.\n======================================================================================\n",
+  "NEW_FEATURE": "Nová funkce: vícejazyčná jména poloh  \u001b[92mwttr.in/станция+Восток\u001b[0m (v UTF-8) a vyhledávání polohy \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (pouze přidejte ~ před pozici)",
+  "FOLLOW_ME": "Sledujte \u001b[46m\u001b[30m@igor_chubin\u001b[0m pro aktualizace pro wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Předpověď počasí pro:"
+}

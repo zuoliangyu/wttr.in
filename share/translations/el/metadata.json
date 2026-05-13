@@ -1,0 +1,15 @@
+{
+  "code": "el",
+  "name": "Greek",
+  "locale": "el_GR",
+  "translators": [
+    {
+      "name": "Panayotis Vryonis"
+    },
+    {
+      "name": "Petewg",
+      "github": "Petewg"
+    }
+  ],
+  "full_translation": false
+}

@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNí rabhamar ábalta do cheantar a aimsiú\nmar sin thugamar go dtí Oymyakon,\ntú ceann do na ceantair bhuanáitrithe is fuaire ar domhan.\n",
+  "UNKNOWN_LOCATION": "Ceantar anaithnid",
+  "LOCATION": "Ceantar",
+  "CAPACITY_LIMIT_REACHED": "\nTá brón orainn, níl mórán iarratas le fail chuig seirbhís na haimsire faoi láthair.\nSeo duit réamhaisnéis na haimsire don chathair réamhshocraithe (chun é a thaispeaint duit).\nGheobhaimid iarratais nua chomh luath agus is feidir.\nLean orainn ar https://x.com/igor_chubin don eolas is déanaí.\n======================================================================================\n",
+  "NEW_FEATURE": "New feature: multilingual location names \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) and location search \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (just add ~ before)",
+  "FOLLOW_ME": "Lean \u001b[46m\u001b[30m@igor_chubin\u001b[0m don wttr.in eolas is deanaí",
+  "CAPTION_WEATHER_REPORT_FOR": "Réamhaisnéis na haimsire do:"
+}

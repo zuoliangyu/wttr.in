@@ -6,6 +6,7 @@ import (
 
 	"github.com/chubin/wttr.in/internal/assets"
 	"github.com/chubin/wttr.in/internal/domain"
+	"github.com/chubin/wttr.in/internal/localization"
 )
 
 // PageRenderer serves static embedded text pages.
@@ -17,7 +18,7 @@ func NewPageRenderer() *PageRenderer {
 }
 
 // Render implements the Renderer interface defined in the domain layer.
-func (p *PageRenderer) Render(query domain.Query) (domain.RenderOutput, error) {
+func (p *PageRenderer) Render(query domain.Query, localizer localization.Localizer) (domain.RenderOutput, error) {
 	// Extract location (which contains the page name when using :page syntax)
 	loc := strings.TrimSpace(query.Options.Location)
 	if loc == "" {

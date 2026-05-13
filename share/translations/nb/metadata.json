@@ -1,0 +1,12 @@
+{
+  "code": "nb",
+  "name": "Norwegian",
+  "locale": "nb_NO",
+  "translators": [
+    {
+      "name": "Fredrik Fjeld",
+      "github": "fredrikfjeld"
+    }
+  ],
+  "full_translation": false
+}

@@ -1,0 +1,11 @@
+{
+  "code": "eo",
+  "name": "Esperanto",
+  "locale": "eo",
+  "translators": [
+    {
+      "name": "Igor Chubin"
+    }
+  ],
+  "full_translation": false
+}

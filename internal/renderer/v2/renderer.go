@@ -9,6 +9,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/chubin/wttr.in/internal/domain"
+	"github.com/chubin/wttr.in/internal/localization"
 	"github.com/chubin/wttr.in/internal/options"
 )
 
@@ -21,8 +22,10 @@ func NewV2Renderer() *V2Renderer {
 	return &V2Renderer{}
 }
 
+type Localize func(text string) string
+
 // Render converts the query's weather JSON into the v2 terminal weather report.
-func (r *V2Renderer) Render(q domain.Query) (domain.RenderOutput, error) {
+func (r *V2Renderer) Render(q domain.Query, localizer localization.Localizer) (domain.RenderOutput, error) {
 	if q.Weather == nil || len(*q.Weather) == 0 {
 		return domain.RenderOutput{}, fmt.Errorf("no weather data available")
 	}
@@ -38,12 +41,13 @@ func (r *V2Renderer) Render(q domain.Query) (domain.RenderOutput, error) {
 
 	opts := q.Options
 	loc := q.Location
+	l10n := localization.New(localizer, q.Options)
 
 	var buf bytes.Buffer
 
 	// Date header (3 days)
 	buf.WriteString("\n\n")
-	buf.WriteString(drawDate(loc))
+	buf.WriteString(drawDate(loc, l10n))
 
 	// Temperature diagram
 	tempValues := extractAllHourlyFloat(weather, func(h domain.Hourly) string {
@@ -89,10 +93,10 @@ func (r *V2Renderer) Render(q domain.Query) (domain.RenderOutput, error) {
 	buf.WriteString("\n\n")
 
 	// Frame + optional textual information
-	content := addFrame(buf.String(), 72, opts)
+	content := addFrame(buf.String(), 72, opts, l10n)
 
 	if !opts.Quiet && !opts.Superquiet && !opts.NoTerminal {
-		content += textualInformation(&q, loc, opts)
+		content += textualInformation(&q, loc, opts, l10n)
 	}
 
 	return domain.RenderOutput{
@@ -104,7 +108,7 @@ func (r *V2Renderer) Render(q domain.Query) (domain.RenderOutput, error) {
 // Remaining drawing functions (not in helpers.go)
 // ===================================================================
 
-func addFrame(content string, width int, opts *options.Options) string {
+func addFrame(content string, width int, opts *options.Options, l10n localization.L10n) string {
 	if opts.NoCaption {
 		return content
 	}
@@ -118,16 +122,20 @@ func addFrame(content string, width int, opts *options.Options) string {
 		lines[i] = "│" + lines[i] + strings.Repeat(" ", spacesNumber) + "│"
 	}
 
-	title := "  Weather report for: "
+	title := l10n.Text("CAPTION_WEATHER_REPORT_FOR")
 	if opts.Superquiet {
 		title = ""
 	} else if !opts.Quiet || !opts.NoCity {
-		title += opts.Location + "  "
+		title += " " + opts.Location
 	} else if opts.Quiet {
-		title = opts.Location + "  "
+		title = opts.Location
 	}
 
-	caption := "┤" + title + "├"
+	caption := ""
+	if !opts.Superquiet {
+		caption = "┤ " + title + " ├"
+	}
+
 	frameTop := "┌" + caption + strings.Repeat("─", width-utf8.RuneCountInString(caption)) + "┐\n"
 
 	return frameTop + strings.Join(lines, "\n") + "\n" +

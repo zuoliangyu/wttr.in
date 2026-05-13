@@ -1,0 +1,11 @@
+{
+  "code": "ro",
+  "name": "Romanian",
+  "locale": "ro_RO",
+  "translators": [
+    {
+      "name": "Gabriel Moruz"
+    }
+  ],
+  "full_translation": false
+}

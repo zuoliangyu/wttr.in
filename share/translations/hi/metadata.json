@@ -1,0 +1,13 @@
+{
+  "code": "hi",
+  "name": "Hindi",
+  "locale": "hi_IN",
+  "translators": [
+    {
+      "name": "Aakash Gajjar",
+      "github": "skyme5"
+    }
+  ],
+  "full_translation": false,
+  "issue": 1031
+}

@@ -10,8 +10,10 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/chubin/wttr.in/internal/assets"
 	"github.com/chubin/wttr.in/internal/domain"
 	"github.com/chubin/wttr.in/internal/options"
+	"github.com/chubin/wttr.in/internal/translate"
 )
 
 var update = flag.Bool("update", false, "update golden files")
@@ -40,6 +42,7 @@ func TestV1Renderer_Render(t *testing.T) {
 		t.Fatalf("failed to load test data: %v", err)
 	}
 
+	localizer := translate.NewBundle(assets.FS)
 	renderer := NewV1Renderer()
 
 	for _, tc := range td.TestCases {
@@ -55,7 +58,7 @@ func TestV1Renderer_Render(t *testing.T) {
 				tc.Query.Options = &options.Options{Lang: "en"}
 			}
 
-			output, err := renderer.Render(tc.Query)
+			output, err := renderer.Render(tc.Query, localizer)
 			if err != nil {
 				t.Fatalf("Render failed: %v", err)
 			}

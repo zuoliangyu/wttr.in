@@ -13,8 +13,8 @@ import (
 	"time"
 
 	"github.com/chubin/wttr.in/internal/domain"
+	"github.com/chubin/wttr.in/internal/localization"
 	"github.com/chubin/wttr.in/internal/options"
-	"github.com/chubin/wttr.in/internal/renderer"
 	"github.com/chubin/wttr.in/internal/util/termutil"
 )
 
@@ -37,7 +37,7 @@ type Locator interface {
 
 // Renderer interface for rendering weather data into a visual representation.
 type Renderer interface {
-	Render(query domain.Query) (domain.RenderOutput, error)
+	Render(query domain.Query, localizer localization.Localizer) (domain.RenderOutput, error)
 }
 
 // Formatter interface for converting rendered output into the final format.
@@ -107,6 +107,7 @@ type WeatherService struct {
 	UplinkProcessor UplinkProcessor
 	RendererMap     map[string]Renderer
 	FormatterMap    map[string]Formatter
+	Localizer       localization.Localizer
 }
 
 // NewWeatherService initializes a new pipeline based on the provided options.
@@ -120,6 +121,7 @@ func NewWeatherService(
 	uplinkProcessor UplinkProcessor,
 	rendererMap map[string]Renderer,
 	formatterMap map[string]Formatter,
+	localizer localization.Localizer,
 ) *WeatherService {
 	return &WeatherService{
 		Weatherer:       weatherer,
@@ -131,6 +133,7 @@ func NewWeatherService(
 		UplinkProcessor: uplinkProcessor,
 		RendererMap:     rendererMap,
 		FormatterMap:    formatterMap,
+		Localizer:       localizer,
 	}
 }
 
@@ -351,6 +354,8 @@ func (s *WeatherService) computeResponse(
 	}
 	tracker.Add("Build Query object", time.Since(start))
 
+	l10n := localization.New(s.Localizer, opts)
+
 	start = time.Now()
 	var (
 		isUpstream     bool
@@ -370,10 +375,24 @@ func (s *WeatherService) computeResponse(
 	} else {
 		// ── Fetch weather ─────────────────────────────────────────────────────
 		start = time.Now()
+
+		// Later, here a new layer of indirection will be needed,
+		// that is responsible for:
+		//
+		// 1. Conversion between multiple formats
+		// 2. Translation of the language
+		// 3. Other data transformation
+
 		weatherBytes, err := s.Weatherer.GetWeather(location.Latitude, location.Longitude, opts.Lang)
 		if err != nil {
 			return nil, ErrDataSource
 		}
+
+		weatherBytes, err = localization.TranslateWeather(weatherBytes, opts.Lang, l10n)
+		if err != nil {
+			return nil, ErrDataSource
+		}
+
 		tracker.Add("Fetch weather data", time.Since(start))
 
 		// ── Filling up Query ───────────────────────────────────────────────────────
@@ -385,7 +404,7 @@ func (s *WeatherService) computeResponse(
 		renderer := s.selectRenderer(opts.View)
 		formatter := s.selectFormatter(opts.Output)
 
-		renderOut, err := renderer.Render(query)
+		renderOut, err := renderer.Render(query, s.Localizer)
 		if err != nil {
 			err = fmt.Errorf("render failed: %w [%s][%v,%v][%d][view=%v]", err, opts.Location, location.Latitude, location.Longitude, len(weatherBytes), opts.View)
 			log.Println(err)
@@ -523,7 +542,7 @@ func (s *WeatherService) selectRenderer(view string) Renderer {
 		return rndrer
 	} else {
 		log.Println("Unknown renderer for view: ", view)
-		return &renderer.V1Renderer{} // If no format specified, use v1 renderer
+		return s.RendererMap["v1"]
 	}
 }
 

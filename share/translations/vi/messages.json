@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nChúng tôi không tìm thấy địa điểm của bạn\nvì vậy chúng tôi đưa bạn đến Oymyakon,\nmột trong những nơi lạnh nhất có người sinh sống trên trái đất.\n",
+  "UNKNOWN_LOCATION": "Địa điểm không xác định",
+  "LOCATION": "Địa điểm",
+  "CAPACITY_LIMIT_REACHED": "\nXin lỗi, hiện tại chúng tôi đã hết lượt yêu cầu thông tin thời tiết.\nĐây là dự báo thời tiết cho thành phố mặc định (chỉ để cho bạn thấy nó trông như thế nào).\nChung tôi sẽ có thêm lượt truy vấn sớm nhất có thể\nBạn có thể theo dõi https://x.com/igor_chubin để cập nhật thông tin mới nhất.\n======================================================================================\n",
+  "NEW_FEATURE": "Chức năng mới: tên địa điểm đa ngôn ngữ \u001b[92mwttr.in/станция+Восток\u001b[0m (dùng UTF-8) và tìm kiếm địa điểm \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (chỉ cần thêm ~ phía trước)",
+  "FOLLOW_ME": "Theo dõi \u001b[46m\u001b[30m@igor_chubin\u001b[0m để cập nhật thông tin về wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Báo cáo thời tiết:"
+}

@@ -1,0 +1,21 @@
+{
+  "code": "zh-cn",
+  "name": "Chinese (Simplified)",
+  "locale": "zh_CN",
+  "translators": [
+    {
+      "name": "YouthLin Chen",
+      "github": "YouthLin"
+    },
+    {
+      "name": "Junhan",
+      "github": "junhan-z"
+    },
+    {
+      "name": "Felix Wong",
+      "github": "gnowxilef"
+    }
+  ],
+  "full_translation": false,
+  "issue": 119
+}

@@ -1,0 +1,14 @@
+{
+  "code": "kk",
+  "name": "Kazakh",
+  "locale": "kk_KZ",
+  "translators": [
+    {
+      "name": "Akku Tutkusheva"
+    },
+    {
+      "name": "Oleg Tropinin"
+    }
+  ],
+  "full_translation": false
+}

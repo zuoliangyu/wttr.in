@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNão conseguimos encontrar a sua localização,\nentão decidimos te mostrar o tempo em Oymyakon,\num dos lugares mais frios e permanentemente desabitados do planeta.\n",
+  "UNKNOWN_LOCATION": "Localização desconhecida",
+  "LOCATION": "Localização",
+  "CAPACITY_LIMIT_REACHED": "\nDesculpe-nos, estamos atingindo o limite de consultas ao serviço de previsão do tempo neste momento.\nVeja a seguir a previsão do tempo para uma cidade padrão (apenas para você ver que aspecto o relatório tem).\nEm breve voltaremos a ter acesso às consultas.\nVocê pode seguir https://x.com/igor_chubin para acompanhar a situação.\n======================================================================================\n",
+  "NEW_FEATURE": "Nova funcionalidade: nomes de localidades em várias línguas \u001b[92mwttr.in/станция+Восток\u001b[0m (em UTF-8) e procura por localidades \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (é só colocar ~ antes)",
+  "FOLLOW_ME": "Seguir \u001b[46m\u001b[30m@igor_chubin\u001b[0m para as novidades de wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Previsão do tempo para:"
+}

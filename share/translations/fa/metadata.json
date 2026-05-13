@@ -1,0 +1,17 @@
+{
+  "code": "fa",
+  "name": "Persian",
+  "locale": "fa_IR",
+  "translators": [
+    {
+      "name": "Javad",
+      "github": "threadripper_"
+    },
+    {
+      "name": "kagetora66",
+      "github": "kagetora66"
+    }
+  ],
+  "full_translation": false,
+  "issue": 1091
+}

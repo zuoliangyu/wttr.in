@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/chubin/wttr.in/internal/domain"
+	"github.com/chubin/wttr.in/internal/localization"
 )
 
 // J2Renderer is a renderer that produces a minified JSON output of weather data
@@ -20,7 +21,7 @@ type J2Renderer struct{}
 // Returns:
 //   - RenderOutput: A struct containing the rendered JSON data as bytes.
 //   - error: An error if the JSON unmarshaling or marshaling process fails.
-func (r *J2Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
+func (r *J2Renderer) Render(query domain.Query, localizer localization.Localizer) (domain.RenderOutput, error) {
 	// Check if weather data is available in the query
 	if query.Weather == nil || len(*query.Weather) == 0 {
 		return domain.RenderOutput{}, nil

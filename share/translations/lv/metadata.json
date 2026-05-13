@@ -1,0 +1,15 @@
+{
+  "code": "lv",
+  "name": "Latvian",
+  "locale": "lv_LV",
+  "translators": [
+    {
+      "name": "Gunārs Danovskis"
+    },
+    {
+      "name": "Edgars Andersons",
+      "github": "eandersons"
+    }
+  ],
+  "full_translation": false
+}

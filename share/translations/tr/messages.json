@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nAradığınız konum bulunamadı. O yüzden sizi dünyadaki en soğuk sürekli\nyerleşim yerlerinden biri olan Oymyakon'e getirdik.\nUmarız sizin olduğunuz yerde havalar daha iyidir!\n",
+  "UNKNOWN_LOCATION": "Bilinmeyen konum",
+  "LOCATION": "Konum",
+  "CAPACITY_LIMIT_REACHED": "\nÜzgünüz, an itibariyle hava durumu servisine yapabileceğimiz sorgu limitine ulaştık.\nVarsayılan şehir için hava durumu bilgisini görüyorsunuz (neye benzediğini gösterebilmek için).\nMümkün olan en kısa sürede servise yeniden sorgu yapmaya başlayacağız.\nGelişmeler için https://x.com/igor_chubin adresini takip edebilirsiniz.\n======================================================================================\n",
+  "NEW_FEATURE": "Yeni özellik: çok dilli konum isimleri \u001b[92mwttr.in/станция+Восток\u001b[0m (UTF-8 ile) ve konum arama \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (sadece önüne ~ ekleyin)",
+  "FOLLOW_ME": "wttr.in ile ilgili gelişmeler için \u001b[46m\u001b[30m@igor_chubin\u001b[0m adresini takip edin",
+  "CAPTION_WEATHER_REPORT_FOR": "Hava beklentisi:"
+}

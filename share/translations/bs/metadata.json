@@ -1,0 +1,12 @@
+{
+  "code": "bs",
+  "name": "Bosnian",
+  "locale": "bs_BA",
+  "translators": [
+    {
+      "name": "Ismar Kunc",
+      "github": "ismarkunc"
+    }
+  ],
+  "full_translation": false
+}

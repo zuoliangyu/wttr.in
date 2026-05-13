@@ -1,0 +1,13 @@
+{
+  "code": "ca",
+  "name": "Catalan",
+  "locale": "ca_ES",
+  "translators": [
+    {
+      "name": "Angel Jarabo",
+      "github": "legna29A"
+    }
+  ],
+  "full_translation": false,
+  "issue": 289
+}

@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nSizning joylashuvingizni aniqlay olmadik,\nshuning uchun sizga sayyoramizning eng sovuq aholi punkti - Oymyakondagi ob-havo haqida ma'lumot beramiz.\nUmid qilamizki, sizda bugungi ob-havo bundan yaxshiroq!\n",
+  "UNKNOWN_LOCATION": "Аникланмаган худуд",
+  "LOCATION": "Location",
+  "CAPACITY_LIMIT_REACHED": "\nSorry, we are running out of queries to the weather service at the moment.\nHere is the weather report for the default city (just to show you what it looks like).\nWe will get new queries as soon as possible.\nYou can follow https://x.com/igor_chubin for the updates.\n======================================================================================\n",
+  "NEW_FEATURE": "New feature: multilingual location names \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) and location search \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (just add ~ before)",
+  "FOLLOW_ME": "Follow \u001b[46m\u001b[30m@igor_chubin\u001b[0m for wttr.in updates",
+  "CAPTION_WEATHER_REPORT_FOR": "Ob-havo bashorati:"
+}

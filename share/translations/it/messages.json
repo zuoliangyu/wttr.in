@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNon siamo riusciti a trovare la sua posizione\nquindi la abbiamo portato a Oymyakon,\nuno dei luoghi abitualmente abitati più freddi del pianeta.\nCi auguriamo che le condizioni dove lei si trova siano migliori!\n",
+  "UNKNOWN_LOCATION": "Località sconosciuta",
+  "LOCATION": "Località",
+  "CAPACITY_LIMIT_REACHED": "\nScusate, attualmente stiamo esaurendo le risorse a disposizione del servizio meteo.\nQui trovate il bollettino del tempo per la città di default (solo per mostrarvi come si presenta).\nPotremo elaborare nuove richieste appena possibile.\nPotete seguire https://x.com/igor_chubin per gli aggiornamenti.\n======================================================================================\n",
+  "NEW_FEATURE": "Nuove funzionalità: nomi delle località multilingue \u001b[92mwttr.in/станция+Восток\u001b[0m (in UTF-8) e ricerca della località \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (basta premettere ~)",
+  "FOLLOW_ME": "Seguite \u001b[46m\u001b[30m@igor_chubin\u001b[0m per aggiornamenti a wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Previsioni meteo:"
+}

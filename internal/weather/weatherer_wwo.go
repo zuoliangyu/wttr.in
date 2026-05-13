@@ -68,9 +68,18 @@ func NewWeatherClient(cfg *WWOConfig) *WeatherClient {
 	}
 }
 
+func (wc *WeatherClient) GetWeather(lat, lon float64, lang string) ([]byte, error) {
+	weatherBytes, err := wc.getWeather(lat, lon, lang)
+	if err != nil {
+		return nil, err
+	}
+
+	return weatherBytes, nil
+}
+
 // GetWeather fetches weather data while respecting the concurrency limit.
 // It reuses HTTP connections thanks to the shared http.Client.
-func (wc *WeatherClient) GetWeather(lat, lon float64, lang string) ([]byte, error) {
+func (wc *WeatherClient) getWeather(lat, lon float64, lang string) ([]byte, error) {
 	// Non-blocking attempt to acquire a semaphore slot
 	select {
 	case wc.sem <- struct{}{}:
@@ -107,14 +116,18 @@ func (wc *WeatherClient) GetWeather(lat, lon float64, lang string) ([]byte, erro
 	}
 
 	////////////////
-	// Remove 'data' wrapper.
+	// Remove optional 'data' wrapper.
+	// - WWO format implies 'data' field.
+	// - j1 format has no 'data' field.
+	//
 	var data struct {
 		Data interface{} `json:"data"`
 	}
 
 	err = json.Unmarshal(body, &data)
-	if err != nil {
-		return nil, fmt.Errorf("invalid data format")
+	if err != nil || data.Data == nil {
+		// "data" field is not found, return as is.
+		return body, nil
 	}
 
 	dataBytes, err := json.MarshalIndent(data.Data, "", "  ")

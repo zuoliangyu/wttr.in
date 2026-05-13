@@ -1,0 +1,12 @@
+{
+  "code": "bg",
+  "name": "Bulgarian",
+  "locale": "bg_BG",
+  "translators": [
+    {
+      "name": "Vladimir Vitkov",
+      "github": "zeridon"
+    }
+  ],
+  "full_translation": false
+}

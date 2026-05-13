@@ -17,6 +17,7 @@ var fontPaths = map[string]string{
 	"default":    "fonts/DejaVuSansMono.ttf",
 	"Cyrillic":   "fonts/DejaVuSansMono.ttf",
 	"Greek":      "fonts/DejaVuSansMono.ttf",
+	"Gurmukhi":   "fonts/NotoSansGurmukhi-Regular.ttf",
 	"Arabic":     "fonts/DejaVuSansMono.ttf",
 	"Hebrew":     "fonts/DejaVuSansMono.ttf",
 	"Han":        "fonts/wqy-zenhei.ttc",

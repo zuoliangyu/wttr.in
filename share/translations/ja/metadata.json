@@ -1,0 +1,12 @@
+{
+  "code": "ja",
+  "name": "Japanese",
+  "locale": "ja_JP",
+  "translators": [
+    {
+      "name": "ryunix"
+    }
+  ],
+  "full_translation": false,
+  "issue": 77
+}

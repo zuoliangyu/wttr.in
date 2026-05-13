@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNismo mogli pronaći vašu lokaciju,\ntako da smo te doveli do Oymyakon,\njedan od najhladnijih stalno naseljena mjesta na planeti.\nNadamo se da ćete imati bolje vreme!\n",
+  "UNKNOWN_LOCATION": "Nepoznatoja lokacija",
+  "LOCATION": "Lokacija",
+  "CAPACITY_LIMIT_REACHED": "\nŽao mi je, mi ponestaje upita i vremenska prognoza u ovom trenutku.\nOvdje je izvještaj o vremenu za default grada (samo da vam pokažem kako to izgleda).\nMi ćemo dobiti nove upite u najkraćem mogućem roku.\nMožete pratiti https://x.com/igor_chubin za ažuriranja.\n======================================================================================\n",
+  "NEW_FEATURE": "XXXXXXXXXXXXXXXXXXXX: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX\u001b[92mwttr.in/станция+Восток\u001b[0m (XX UTF-8) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "FOLLOW_ME": "XXXXXX \u001b[46m\u001b[30m@igor_chubin\u001b[0m XXXXXXXXXXXXXXXXXXX",
+  "CAPTION_WEATHER_REPORT_FOR": "Vremenske prognoze za:"
+}

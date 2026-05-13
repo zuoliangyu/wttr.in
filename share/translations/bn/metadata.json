@@ -1,0 +1,13 @@
+{
+  "code": "bn",
+  "name": "Bengali",
+  "locale": "bn_IN",
+  "translators": [
+    {
+      "name": "Nazia Tasnim",
+      "github": "appledora"
+    }
+  ],
+  "full_translation": false,
+  "issue": 659
+}

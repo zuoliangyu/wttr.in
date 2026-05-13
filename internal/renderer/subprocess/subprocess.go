@@ -19,6 +19,7 @@ import (
 	"strings"
 
 	"github.com/chubin/wttr.in/internal/domain"
+	"github.com/chubin/wttr.in/internal/localization"
 )
 
 // SubprocessRoute defines a single routing rule for the subprocess renderer.
@@ -60,7 +61,7 @@ func NewRenderer(routes []SubprocessRoute) *Renderer {
 }
 
 // Render implements the Renderer interface.
-func (r *Renderer) Render(query domain.Query) (domain.RenderOutput, error) {
+func (r *Renderer) Render(query domain.Query, localizer localization.Localizer) (domain.RenderOutput, error) {
 	if query.Options == nil {
 		return domain.RenderOutput{}, fmt.Errorf("subprocess renderer: query.Options is required")
 	}

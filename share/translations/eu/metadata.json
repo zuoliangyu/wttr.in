@@ -1,0 +1,13 @@
+{
+  "code": "eu",
+  "name": "Basque",
+  "locale": "eu_ES",
+  "translators": [
+    {
+      "name": "Iker Sagasti",
+      "github": "isagasti"
+    }
+  ],
+  "full_translation": false,
+  "issue": 438
+}

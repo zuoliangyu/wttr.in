@@ -1,0 +1,9 @@
+{
+  "NOT_FOUND_MESSAGE": "\nNous n'avons pas pu déterminer votre position,\nNous vous avons donc amenés à Oïmiakon,\nl'un des endroits les plus froids habités en permanence sur la planète.\nNous espérons qu'il fait meilleur chez vous !\n",
+  "UNKNOWN_LOCATION": "Emplacement inconnu",
+  "LOCATION": "Emplacement",
+  "CAPACITY_LIMIT_REACHED": "\nDésolé, nous avons épuisé les requêtes vers le service météo.\nVoici un bulletin météo de l'emplacement par défaut (pour vous donner un aperçu).\nNous serons très bientôt en mesure de faire de nouvelles requêtes.\nVous pouvez suivre https://x.com/igor_chubin pour rester informé.\n======================================================================================\n",
+  "NEW_FEATURE": "Nouvelles fonctionnalités: noms d'emplacements multilingues \u001b[92mwttr.in/станция+Восток\u001b[0m (en UTF-8) et recherche d'emplacement \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (ajouter ~ devant)",
+  "FOLLOW_ME": "Suivez \u001b[46m\u001b[30m@igor_chubin\u001b[0m pour rester informé sur wttr.in",
+  "CAPTION_WEATHER_REPORT_FOR": "Prévisions météo pour:"
+}

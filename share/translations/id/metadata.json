@@ -1,0 +1,12 @@
+{
+  "code": "id",
+  "name": "Indonesian",
+  "locale": "id_ID",
+  "translators": [
+    {
+      "name": "Andria Arisal",
+      "github": "andria009"
+    }
+  ],
+  "full_translation": false
+}

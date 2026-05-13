@@ -1,0 +1,12 @@
+{
+  "code": "ia",
+  "name": "Interlingua",
+  "locale": "ia",
+  "translators": [
+    {
+      "name": "Dustin Redmond",
+      "github": "dustinkredmond"
+    }
+  ],
+  "full_translation": false
+}

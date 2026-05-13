@@ -1,0 +1,11 @@
+{
+  "code": "sv",
+  "name": "Swedish",
+  "locale": "sv_SE",
+  "translators": [
+    {
+      "name": "John Eriksson"
+    }
+  ],
+  "full_translation": false
+}

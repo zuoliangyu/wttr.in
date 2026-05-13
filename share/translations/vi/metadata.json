@@ -1,0 +1,13 @@
+{
+  "code": "vi",
+  "name": "Vietnamese",
+  "locale": "vi_VN",
+  "translators": [
+    {
+      "name": "Lưu Vĩnh Phúc",
+      "github": "phuclv90"
+    }
+  ],
+  "full_translation": false,
+  "issue": 86
+}
