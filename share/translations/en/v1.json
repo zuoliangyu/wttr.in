@@ -2,5 +2,6 @@
   "CAPTION_MORNING": "Morning",
   "CAPTION_NOON": "Noon",
   "CAPTION_EVENING": "Evening",
-  "CAPTION_NIGHT": "Night"
+  "CAPTION_NIGHT": "Night",
+  "LOCALE": "en_US"
 }

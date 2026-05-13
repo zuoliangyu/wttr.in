@@ -4,6 +4,6 @@
   "LOCATION": "Emplacement",
   "CAPACITY_LIMIT_REACHED": "\nDésolé, nous avons épuisé les requêtes vers le service météo.\nVoici un bulletin météo de l'emplacement par défaut (pour vous donner un aperçu).\nNous serons très bientôt en mesure de faire de nouvelles requêtes.\nVous pouvez suivre https://x.com/igor_chubin pour rester informé.\n======================================================================================\n",
   "NEW_FEATURE": "Nouvelles fonctionnalités: noms d'emplacements multilingues \u001b[92mwttr.in/станция+Восток\u001b[0m (en UTF-8) et recherche d'emplacement \u001b[92mwttr.in/~Kilimanjaro\u001b[0m (ajouter ~ devant)",
-  "FOLLOW_ME": "Suivez \u001b[46m\u001b[30m@igor_Chubin\u001b[0m pour rester informé sur wttr.in",
+  "FOLLOW_ME": "Suivez \u001b[46m\u001b[30m@igor_chubin\u001b[0m pour rester informé sur wttr.in",
   "CAPTION_WEATHER_REPORT_FOR": "Prévisions météo pour:"
 }
