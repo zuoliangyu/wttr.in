@@ -679,7 +679,7 @@ geo:
 weather:
   wwo:
     baseUrl: "http://wttr.in/{lat},{lon}?format=j1&lang={lang}"
-    # token: "YOUR_WWO_TOKEN"   # optional
+    # key: "YOUR_WWO_TOKEN"   # optional
 
 server:
   portHttp: 8080
