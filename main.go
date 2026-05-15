@@ -52,28 +52,24 @@ func srv(configFile string) error {
 	}
 
 	////////////////////////////
-	// Configuring Renderers.
+	// Configuring Renderers
 	////////////////////////////
-
 	rendererMap := map[string]weather.Renderer{
-		"v1":   v1.NewV1Renderer(),
-		"v2":   v2.NewV2Renderer(),
-		"v2d":  v2.NewV2Renderer(),
-		"v2n":  v2.NewV2Renderer(),
-		"p1":   renderer.NewPrometheusRenderer(),
-		"j1":   &renderer.J1Renderer{},
-		"j2":   &renderer.J2Renderer{},
-		"line": oneline.NewOnelineRenderer(),
-		"page": renderer.NewPageRenderer(),
-
-		// Subprocess renderer loaded from config
+		"v1":         v1.NewV1Renderer(),
+		"v2":         v2.NewV2Renderer(),
+		"v2d":        v2.NewV2Renderer(),
+		"v2n":        v2.NewV2Renderer(),
+		"p1":         renderer.NewPrometheusRenderer(),
+		"j1":         &renderer.J1Renderer{},
+		"j2":         &renderer.J2Renderer{},
+		"line":       oneline.NewOnelineRenderer(),
+		"page":       renderer.NewPageRenderer(),
 		"subprocess": subprocess.NewRenderer(cfg.Renderer.Subprocess),
 	}
 
 	////////////////////////////
-	// Configuring Formatters.
+	// Configuring Formatters
 	////////////////////////////
-
 	htmlFormatter, err := formatter.NewHTMLFormatter()
 	if err != nil {
 		return fmt.Errorf("html formatter creation error: %w", err)
@@ -86,13 +82,13 @@ func srv(configFile string) error {
 	}
 
 	////////////////////////////
-	// Configuring IP Locators.
+	// Configuring IP Locators
 	////////////////////////////
 	ipLocators := []weather.IPLocator{}
 	if cfg.IP.GeoIP2 != "" {
 		geoIP2, err := ip.NewIPLocatorGeoIP2(cfg.IP.GeoIP2)
 		if err != nil {
-			log.Fatalln("geoip2 initalization error:", err)
+			log.Fatalln("geoip2 initialization error:", err)
 		}
 		ipLocators = append(ipLocators, geoIP2)
 	}
@@ -108,11 +104,6 @@ func srv(configFile string) error {
 		log.Fatalln("error loading wttr.in options description: ", err)
 	}
 
-	lruCache, err := cache.NewLRU(cfg.Cache)
-	if err != nil {
-		log.Fatalln("error creating lru cache: ", err)
-	}
-
 	requestLogger := logging.NewRequestLogger(
 		cfg.Logging.AccessLog,
 		time.Duration(cfg.Logging.Interval)*time.Second,
@@ -120,12 +111,67 @@ func srv(configFile string) error {
 
 	localizer := translate.NewBundle(assets.FS)
 
+	// ==================== MULTI-LAYER CACHE SETUP ====================
+
+	// 1. Responses Cache - final rendered output (usually LRU / in-memory)
+	var responsesCacher weather.Cacher
+	if cfg.Cache.Responses.IsEnabled() {
+		if cfg.Cache.Responses.IsLRU() || cfg.Cache.Responses.Type == "" {
+			responsesCacher, err = cache.NewLRU(cfg.Cache.Responses)
+			if err != nil {
+				log.Fatalln("failed to create responses LRU cache:", err)
+			}
+		} else {
+			// fallback
+			responsesCacher, err = cache.NewLRU(cfg.Cache.Responses)
+			if err != nil {
+				log.Fatalln("failed to create responses cache:", err)
+			}
+		}
+	} else {
+		responsesCacher = cache.NewNoOpCacher()
+	}
+
+	// 2. Weather Cache - raw data from upstream (WWO, etc.)
+	var weatherCacher weather.Cacher
+	if cfg.Cache.Weather.IsEnabled() {
+		if cfg.Cache.Weather.IsDisk() {
+			weatherCacher, err = cache.NewDiskCacher(cfg.Cache.Weather.Dir)
+			if err != nil {
+				log.Fatalln("failed to create weather disk cache:", err)
+			}
+		} else if cfg.Cache.Weather.IsLRU() {
+			weatherCacher, err = cache.NewLRU(cfg.Cache.Weather)
+			if err != nil {
+				log.Fatalln("failed to create weather LRU cache:", err)
+			}
+		} else {
+			weatherCacher, err = cache.NewLRU(cfg.Cache.Weather) // fallback
+			if err != nil {
+				log.Fatalln("failed to create weather cache:", err)
+			}
+		}
+	} else {
+		weatherCacher = cache.NewNoOpCacher()
+	}
+
+	// 3. Create cached weather client
+	rawClient := weather.NewWeatherClient(cfg.Weather.WWO)
+
+	cachedWeatherClient := weather.NewCachedWeatherClient(
+		rawClient,
+		weatherCacher,
+		cfg.Cache.Weather.TTL,
+	)
+
+	// ==================== END CACHE SETUP ====================
+
 	ws := weather.NewWeatherService(
-		weather.NewWeatherClient(cfg.Weather.WWO),
+		cachedWeatherClient,
 		weather.NewCacheLocator(locationCache),
 		ipLocators,
 		query.NewQueryParser(defs),
-		lruCache,
+		responsesCacher,
 		requestLogger,
 		uplink.NewUplinkProcessor(cfg.Uplink),
 		rendererMap,
@@ -147,18 +193,16 @@ func main() {
 	} else {
 		logrus.SetLevel(logrus.InfoLevel)
 	}
-	// Optional: Set output format
+
 	logrus.SetFormatter(&logrus.TextFormatter{
 		FullTimestamp: true,
 	})
 
-	// Check the remaining arguments after flag parsing
 	if len(flag.Args()) < 1 {
 		logrus.Error("Usage: CMD {gen|srv CONFIG}")
 		os.Exit(1)
 	}
 
-	// Use flag.Args() instead of os.Args to access non-flag arguments
 	switch flag.Args()[0] {
 	case "srv":
 		var configFile string
@@ -173,12 +217,14 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
+
 	case "gen":
 		logrus.Info("Generating options and parser...")
 		err := generate.GenerateOptionsAndParser()
 		if err != nil {
 			logrus.Error(err)
 		}
+
 	default:
 		logrus.Error("Invalid command. Usage: CMD {gen|srv}")
 		os.Exit(1)

@@ -8,13 +8,13 @@ import (
 	"sync"
 	"time"
 
-	lru "github.com/hashicorp/golang-lru/v2"
 	"github.com/chubin/wttr.in/internal/domain"
 	"github.com/chubin/wttr.in/internal/weather"
+	lru "github.com/hashicorp/golang-lru/v2"
 )
 
 const (
-	inProgressMarker = "__IN_PROGRESS__"
+	inProgressMarker    = "__IN_PROGRESS__"
 	defaultPollInterval = 25 * time.Millisecond
 	defaultMaxWait      = 12 * time.Second
 )
@@ -30,7 +30,7 @@ type LRUCacher struct {
 }
 
 // NewLRU creates and returns a new LRU-based Cacher.
-func NewLRU(cfg Config) (weather.Cacher, error) {
+func NewLRU(cfg CacheLayer) (weather.Cacher, error) {
 	size := cfg.Size
 	if size <= 0 {
 		size = 1024

@@ -71,6 +71,22 @@ type CacheEntry struct {
 	// Expires is the absolute time after which this cache entry
 	// should be considered stale and no longer served.
 	Expires time.Time
+
+	// ── Fields added for better multi-source / observability support ──
+
+	// CachedAt records when this entry was stored.
+	CachedAt time.Time `json:"cached_at"`
+
+	// TTL is the original time-to-live duration that was used when the entry was cached.
+	// Useful for debugging and future cache policy decisions.
+	TTL time.Duration `json:"ttl"`
+
+	// Key is the original cache key (for debugging and cache inspection tools).
+	Key string `json:"key"`
+
+	// Source identifies where the data came from (e.g. "weather:wwo", "users:service-v2", etc.).
+	// Very helpful when caching responses from multiple backends.
+	Source string `json:"source"`
 }
 
 // WeatherRaw is a type alias for raw weather data returned by a weather backend.
