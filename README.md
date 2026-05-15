@@ -659,8 +659,23 @@ sudo chown wttr:wttr /wttr.in/bin/srv
 Create `/wttr.in/config.yaml`:
 
 ```yaml
+
 cache:
-  size: 50000
+  # Cache for final rendered responses (HTML, JSON, PNG, text, etc.)
+  responses:
+    type: lru
+    size: 50000          # your previous LRU size
+    ttl: 10m             # short TTL for rendered output
+    enabled: true
+
+  # Cache for raw weather data from upstream APIs (WWO, etc.)
+  weather:
+    type: disk
+    dir: /var/cache/wttr.in/weather
+    ttl: 45m
+    max_size_mb: 2048     # 2 GB soft limit
+    cleanup_interval: 15m
+    enabled: true
 
 ip:
   ipCacheDb: /wttr.in/cache/geoip.db
